@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="html/text;charset=utf8" >
+<script>
+var obj = {name:"fangbao",age:22};
+var o2 = new Object();
+
+function Person(name,age){
+	this.name=name;
+	this.age=age;
+	//console.log("");
+}
+
+Person.prototype.getName = function(){
+	console.log(this.name);
+}
+var f1 = new Person("高艳茹",22);
+console.log(f1);
+console.log(o2);
+
+console.log(obj.toString());
+console.log(obj.valueOf());
+console.log(obj.hasOwnProperty("22"));
+console.log(obj.toLocaleString());
+</script>
+<body>
+</body>
+</html>

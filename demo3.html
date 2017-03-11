@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		var arr = [];
+		arr['a'] = "a";
+		arr['b'] = "b";
+		arr.push('c')
+		console.log(arr);
+		var arr2 = {"a":"a","b":"b"};
+		
+		
+		console.log(arr2);
+		var obj = {a:"a",b:"b"}
+		console.log(obj);
+
+		function fn(){
+			console.log(22);
+			//return 22;
+		}
+		console.log(fn);
+		console.log(fn()); // 没有return 返回undefined
+		function fn2(){
+			a = 222;
+		}
+		fn2();
+		console.log(fn2());
+		console.log(a);
+
+		var scope = "global";
+		var m;
+		console.log(m)
+		console.log(aaa);
+		function fn3(){
+			//var scope;
+
+			console.log(scope);
+			var scope = "local";
+			//let scope = "local"; uncaught ReferenceError 引用错误
+
+			console.log(scope)
+		}
+		fn3();
+	</script>
+</head>
+</html>

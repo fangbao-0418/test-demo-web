@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title></title>
+	<style type="text/css">
+		body,div,span{
+			margin:0;
+			padding:0;
+			font-size: 14px;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		#box {
+			position:absolute;
+			left:50%;
+			top:50px;
+			margin-left:-50px;
+			width:100px;
+			height:30px;
+			line-height:30px;
+			border:1px dashed red;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<span>购物车</span>
+		<div id="mark" style="display:none">查看购物车中的详细信息</div>
+	</div>
+	<script type="text/javascript">
+		//1、事件委托也叫事件代理
+		//->利用事件的冒泡传播机制（触发当前元素的某个行为，它父级所有的元素的相关行为都会被触发，如果一个容器中有很多元素都要绑定点击事件，我们没有必要一个个的绑定了，只需要给最外层容器绑定一个点击事件即可，在这个方法执行的时候，通过事件源的区分来进行不同的操作）
+		var mark = document.getElementById("mark")
+		document.body.onclick=function(e){
+			e = e || window.event;
+			e.target = e.target || e.srcElement;
+			console.log(e.target.tagName);
+			if(e.target.id == "box" || (e.target.tagName.toLowerCase == "span" && e.target.parentNode.id == "box")){
+				mark.style.display = mark.style.display == "none" ? "block" : "none";
+				console.log(2)
+				return ;
+			}
+			if(e.target.id == "mark"){
+				return;
+			}
+			console.log(e)
+			mark.style.display = "none";			
+		}
+	</script>
+</body>
+</html>

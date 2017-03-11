@@ -1,0 +1,68 @@
+@keyframes showAlert{
+	0% {
+	    transform: scale(0.7);
+	}
+	45% {
+	    transform: scale(1.05);
+	}
+	80% {
+	    transform: scale(0.95);
+	}
+	100% {
+	    transform: scale(1);
+	}
+}
+html,body{
+	margin:0;
+	padding:0;
+	height: 100%;
+	font-family: "微软雅黑"
+}
+body{
+	background: #fcc;
+}
+#oDiv{
+/*	display: none;*/
+	width:410px;
+	height:200px;
+	color:#fff;
+	position:absolute;
+	display: inline;
+	transition: all 2s;
+	animation: showAlert 0.3s ease-in-out;
+}
+#oDiv .confirmHeader{
+	width:410px;
+	height:120px;
+	background: #fff;
+	position:relative;
+}
+#oDiv .confirmHeader i{
+	width:37px;
+	height:42px;
+	position:absolute;
+	top:40px;
+	left:36px;
+	background: url(../image/warning_icon.gif) no-repeat;
+}
+#oDiv .confirmHeader span{
+	font-size:26px;
+	color:#000;
+	position: absolute;
+	top:40px;
+	left:90px;
+}
+#oDiv .confirmFooter{
+	width:410px;
+	height:80px;
+	text-align: center;
+	background: #f7f7f7;
+}
+#oDiv .confirmFooter span{
+	color: #000;
+	font-size: 26px;
+	line-height: 80px;
+}
+.model{
+	transform: translate(-50%,-50%) scale(2,2);
+}

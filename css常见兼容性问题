@@ -1,0 +1,6 @@
+1. 不同浏览器对html标记所具有的内外边距有不同的定义 *{margin:0;padding:0}
+2. 优先级问题 内联代码>浏览器默认设置>外部css样式
+3. 两个img因需要排在一行时用了flaot:left出现margin问题 给图片添加dispaly:inline
+4. div垂直相邻 margin重合 
+5. vertical-align:middle 用line-height
+6. ie6 双边锯 display:inline

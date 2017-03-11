@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<style type="text/css">
+		.canvasBg{
+			width: 640px;
+			height: 640px;
+			position: relative;
+			background: url("img/bg_20150715.png") no-repeat;
+		}
+		.canvasBg .left-hidden{
+			top: 164px;
+    		left: 115px;
+			position: absolute;
+			width:205px;
+			height:410px;
+			background: #000;
+			overflow: hidden;
+		}
+		.canvasBg .right-hidden{
+			top: 164px;
+    		left: 320px;
+			position: absolute;
+			width:205px;
+			height:410px;
+			background: #000;
+			overflow: hidden;
+		}
+		.stack-left{
+			/*display: none;*/
+			transform:rotate(-94deg);			
+			animation: circleProgressLoad_left 5s linear infinite;   
+		}
+		.stack-right{
+			/*display: none;*/
+			left:-210px;
+			transform:rotate(86deg);			
+			animation: circleProgressLoad_right 5s linear infinite;   
+		}
+		.stack{
+			position: absolute;
+			border:20px solid #56d9ff;
+			border-radius: 50%;
+			box-sizing:border-box;
+			border-top:20px solid transparent;
+			border-right:20px solid transparent;
+			width:410px;
+			height:410px;
+		}
+		
+		.stack .stack-spot-head{
+			display: inline-block;
+			position: absolute;
+			bottom: 314px;
+    		left: 38px;
+			width:20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color:#56d9ff;
+		}
+		.stack .stack-spot-foot{
+			display: inline-block;
+			position: absolute;
+			top: 35px;
+			right: 39px;
+			width:20px;
+			height: 20px;
+			border-radius: 50%;
+			background-color:#56d9ff;
+		}
+		@-webkit-keyframes circleProgressLoad_right{   
+		  0%{   
+		    -webkit-transform: rotate(45deg);   
+		  }   
+		  50%,100%{   
+		    -webkit-transform: rotate(225deg);   
+		  }   
+		}   
+		@-webkit-keyframes circleProgressLoad_left{   
+		  0%,50%{   
+		    -webkit-transform: rotate(45deg);   
+		  }   
+		  100%{   
+		    -webkit-transform: rotate(225deg);   
+		  }   
+		}  
+	</style>
+</head>
+<body>
+
+<svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+
+<rect width="100" height="100"
+style="fill:rgb(255,255,255);stroke-width:1;
+stroke:rgb(0,0,0)"/>
+
+</svg>
+
+<div class="canvasBg">
+<!-- <svg width="640" height="640" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+<circle cx="320" cy="320" r="98" stroke="yellow"
+stroke-width="30" fill="rgb(255,255,255)" style=""/>
+<circle cx="320" cy="320" r="98" stroke="black"
+stroke-width="30" fill="rgb(255,255,255)" style=""/> 
+circle 绘制圆， cx、cy圆的x、y轴位置 stock边框颜色 stroke-width边框宽度 fill内部填充
+</svg> -->
+<div class="left-hidden">
+	<div class="stack stack-left">
+		<i class="stack-spot-head"></i>
+		<i class="stack-spot-foot"></i>
+	</div>
+
+</div>
+<div class="right-hidden">
+	<div class="stack stack-right">
+		<i class="stack-spot-head"></i>
+		<i class="stack-spot-foot"></i>
+	</div>
+</div>
+
+
+</div>
+</body>
+<html>

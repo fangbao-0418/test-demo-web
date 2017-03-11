@@ -1,0 +1,35 @@
+<!DOCTTYPE html>
+<html>
+<head>
+	<meta http-equiv="content" content="text/html;charset=utf-8">
+	<title>cookie的操作和使用</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var setCookie = function(name,value,timer){
+			var exp = new Date();
+			exp.setTime(exp.getTime() + timer);
+			document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+		}
+		var getCookie = function(name){
+			var arr,reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+			console.log(reg);
+			console.log(document.cookie)
+			console.log(document.cookie.match(reg));
+			if(arr = document.cookie.match(reg)){
+				return arr[2]
+			}else{
+				return null
+			}
+		}
+		var delCookie = function(name){
+			var exp = new Date();
+			exp.setTime(exp.getTime() - 1);
+			var cval = getCookie(name);
+			if(cval != null){
+				document.cookie = name + "=" + cval + " ;expires=" + exp.toGMTString();
+			}
+		}
+	</script>
+</body>
+</html>

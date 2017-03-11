@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+		//es6 增强的对象字面量  可直接定义原型 直接调取父类方法和属性
+		var a = {
+			//console.log(this)
+			getName:function(){
+				return function(){
+					console.log(this);
+				}
+				
+			}
+		}
+	
+		a.getName()()
+
+		//var i = 1;
+		//函数声明必须有函数名 以下会报语法错误 syntaxError
+		// function(){
+		// 	var i;
+		// 	i = 6;
+		// 	j = 4;
+		// 	//var i;
+		// }()
+		
+		//b();
+		//console.log(i,j)
+		var i = 1;
+		function init(){
+			console.log(i);
+			var i = 2;
+			return function(){
+				return i;
+			}
+		}
+		console.log(init()())
+	</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>js 输出一个菱形</title>
+	<style type="text/css">
+	body{
+		
+	}
+	</style>
+	<script type="text/javascript">
+		// document.write("*</br>*")
+		// document.write('1'+'1');
+
+		function outputRhombus(num){
+			var max;
+			for(var i=0;i<num;i++){
+				max = 2*i+1;
+				if(i < (num/2)){					
+					for(var j=0;j<(num-max)/2;j++){
+						document.write(" ");
+					}
+					for(var j=0;j<max;j++){
+						document.write("*");
+					}
+				}else{
+					console.log(2*num - max)
+					for(var j=0;j< (num - (2*num - max))/2 ;j++){
+						document.write(" ");
+					}
+					for(var j=0;j<(2*num - max);j++){
+						document.write("*");
+					}
+				}
+				
+				document.write("<br>");
+			}
+		}
+		outputRhombus(5);
+	</script>
+</head>
+<body>
+</body>	
+</html>

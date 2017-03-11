@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>es6 新特性</title>
+	<link rel="stylesheet" type="text/css" href="">
+	<script type="text/javascript">
+		//箭头操作符
+		var array = [1,2,3];
+		array.forEach(function(v){
+			console.log(v);
+		})
+		//类的支持
+		class Person {
+			constructor(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			sayName() {
+				console.log("my name is ",this.name);
+			}
+		}
+		class Study extends Person {
+			constructor(name,age){
+				super(name,age);
+			}
+			doHomeWork(){
+				console.log(this.name," is doing homework")
+			}
+		}
+		var me = new Study("方宝",22);
+		console.log(me.name,me.age);
+		me.sayName();
+		me.doHomeWork();
+		//增强的对象字面量
+		var obj = {name:"fangbao",say(){console.log(this.name)}}
+		//字符串模板
+		console.log(`my name is ${me.name}`)
+		//解构 对象和数组
+		var [name,age] = ['方宝',22];
+		console.log(name,age);
+		var {name,age} = {name:"fangbao",age:21};
+		console.log(name,age);
+		//参数默认值 不定参数 扩展参数
+		//let 和 const
+		const d = "2";
+		//d = 3; // 会报错
+		//for of
+		// iterator 和 generator
+
+		(function(){
+			// const iterable = {
+			//   *[Symbol.iterator]() {
+			//     yield 10;
+			//     yield 20;
+			//     yield 30;
+			//   }
+			// }
+
+			// for (let x of iterable) {
+			//   console.log(x);
+			// }
+
+			// (function* () {
+			//   for (x of a) {
+			//     for (y of b) {
+			//       yield x * y;
+			//     }
+			//   }
+			// }())
+
+			// const g = (for (x of [1, 2, 3]) x * x);
+
+			// g.next();                   // returns { done: false, value: 1 }
+			// g.next(5);                  // returns { done: false, value: 2 }
+			// g.throw(new Error("boo!")); // immediately throws the error
+
+			function* gen(x){
+				console.log(x)
+				let b = yield x*10;
+				console.log(b)
+				let c = yield b + x;
+				console.log(c);
+			}
+			var g= gen(10);
+			g.next(100) // 10
+			console.log(g.next(100));
+			g.next(12);
+			g.next(2);
+
+
+			var match = function * (pattern, string) {
+			 var regexp = new RegExp(pattern, 'g'); 
+			 for(let i; i = regexp.exec(string); yield i);
+			};
+			 
+			for(let i of match('a', 'abcabcabc')) {
+			 console.log(i);
+			}
+
+		})()
+		
+
+		function A(...x){
+			console.log(x)
+		}
+		A(1,2,3,{name:"fangbao"});
+		function* gen(x){
+			console.log(x);
+			let a = yield x;
+		}
+
+
+		var match = function * (pattern, string) {
+		 var regexp = new RegExp(pattern, 'g'); 
+		 for(let i; i = regexp.exec(string); yield i);
+		};
+		 console.log(match('a','abcabcabc'))
+		for(let i of match('a', 'abcabcabc')) {
+		 console.log(i);
+		}
+		// gen(10);
+		// gen.next(10)
+
+		function* iterEntries(obj) {
+	    let keys = Object.keys(obj);
+	    //console.log(keys);
+		    for (let i=0; i < keys.length; i++) {
+		        let key = keys[i];
+		        yield [key, obj[key]];
+		    }
+		}
+
+		let myObj = { foo: 3, bar: 7 };
+
+		var g = iterEntries(myObj);
+		//console.log(g.next());
+		while(iterEntries(myObj)){
+			console.log(g.next());
+		}
+		// for (let [key, value] of iterEntries(myObj)) {
+		//     console.log(iterEntries(myObj).next())
+		//     console.log(key, value); //输出：foo 3 ， bar 7
+
+		// }
+
+	</script>
+</head>
+</html>

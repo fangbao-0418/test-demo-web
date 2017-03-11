@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多级菜单</title>
+    <style>
+        html,body,div,ul,li,em,span{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            display: none;
+        }
+        .list{
+            display: block;
+            width: 300px;
+            /*height: 300px;*/
+            margin: 20px;
+            background: -webkit-linear-gradient(top,yellow,lime);
+            background: linear-gradient(top,yellow,lime);
+        }
+        .list li{
+            position: relative;
+            line-height: 30px;
+            color: #999;
+            font-size: 16px;
+        }
+        .list li em{
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: url("icon.png") no-repeat -58px -27px;
+            position: absolute;
+            left: 0;
+            top: 6px;
+            cursor: pointer;
+        }
+        .list li em.open{
+            background-position: -40px -27px;
+        }
+        .list li span{
+            display: inline-block;
+            margin-left: 25px;
+        }
+        .second{
+            /*display: none;*/
+            margin-left: 20px;
+        }
+        .third{
+            /*display: none;*/
+            margin-left: 40px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <ul class="list first">
+        <!--第一级第一个-->
+        <li>
+            <em></em><span>1-1</span>
+            <ul class="">
+                <li><span>2-1</span></li>
+                <li><span>2-2</span></li>
+                <li>
+                    <em></em><span>2-3</span>
+                    <ul class="">
+                        <li><span>3-1</span></li>
+                        <li><span>3-2</span></li>
+                        <li><span>3-3</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <!--第一级第二个-->
+        <li><span>1-2</span></li>
+    </ul>
+</body>
+</html>
+<script>
+    // 给可以点击的span添加手型样式
+    var list = document.getElementsByClassName('list')[0]; // 第一个ul
+    // 用js来处理ul的缩进问题
+    var uls = list.getElementsByTagName('ul'); // 2，3，4...
+    for(var i = 0; i < uls.length; i++){
+        uls[i].style.marginLeft = 20*(i+1) + 'px';
+    }
+    // 用js来处理span的pointer问题
+    var spans = list.getElementsByTagName('span');
+    // 循环所有的span，只要当前span存在一个em的元素哥哥就可以添加pointer样式
+    for(var i = 0; i < spans.length; i++){
+        var curSpan = spans[i];
+        if(curSpan.previousElementSibling && curSpan.previousElementSibling.nodeName === 'EM'){
+            curSpan.style.cursor = 'pointer';
+        }
+    }
+    // 利用事件委托来处理em和span的点击问题
+    list.onclick = function (e){
+        e = e || window.event;
+        e.target = e.target || e.srcElement;
+        if(e.target.nodeName == 'EM' || e.target.nodeName == 'SPAN'){
+            // 但是这里的span有可能不是那个带pointer样式的，需要排除
+            var par/*li*/ = e.target.parentNode; //先获取到当前点击的这个元素的父元素
+            //如果这个父元素存在一个ul的孩子才有必要去操作
+            var ulChild = par.lastElementChild; //获取li的最后一个孩子
+            if(ulChild.nodeName == 'UL'){
+                // 如果点击的事件发生该如何处理
+                var isBlock = window.getComputedStyle(ulChild).display == 'block';
+                var em = par.getElementsByTagName('em')[0]; // 我要操作的图标
+                if(isBlock){
+                    // 如果是关闭把从当前节点所有的子孙后代全部关闭
+                    var uls = par.getElementsByTagName('ul');
+                    var ems = par.getElementsByTagName('em');
+                    for(var i = 0; i < uls.length; i++){
+                        uls[i].style.display = 'none';
+                        ems[i].className = '';
+                    }
+                }else{
+                    ulChild.style.display = 'block';
+                    em.className = 'open';
+                }
+
+            }
+        }
+
+    }
+
+    /*
+    *
+    *
+    *
+    *
+    * */
+
+
+
+
+
+
+</script>

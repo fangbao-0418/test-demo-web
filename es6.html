@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ES6</title>
+	<meta http-equiv="content-type" content="html/text;charset=utf8" />
+	<script>
+		let fn = function(){
+			console.log(this)
+		}
+		fn();
+		
+		//Symbols
+		//对象就是键值对的集合 除了字符串 我们还可以用symbol这种值作为键
+		//symbol是一种基本类型  symbol通过symbol函数产生  外部无法访问sybmol作为键的属性
+
+		//Math,Number,String,Object的新api
+		//"abcd".containers("ab"); //true
+		//"abc".repeat(2); //abcabc
+
+		console.log("nihao"," hello ", "fangbao");
+
+		//promise 处理异步操作  jq的defered
+		var promise = new Promise(function(resolve,reject){
+			
+			try{
+				throw "empty";
+			}catch(err){
+				//throw err;
+			}
+			
+			
+			if(true){
+				//resolve("true");
+			}else{
+				//reject();
+			}
+		});
+		console.log(promise)
+		promise.then((res)=>{
+
+			console.log(res)
+		},(err)=>{
+			console.log(err)
+		})
+	</script>
+</head>
+</html>

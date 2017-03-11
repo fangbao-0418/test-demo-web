@@ -1,0 +1,43 @@
+<html>
+<head>
+	<!-- 
+		http-equiv http协议的响应头报文(网络中交换与传输的数据单元)
+		1.页面跳转 refresh 
+		使用方法 http-equiv="refresh" content="10,URL=http://www.baidu.com"
+		10s后刷新跳转到百度
+		2.页面编码Content-Type
+		3.缓存控制 Cache-control content="public/private/no-cache/no-store"
+		http-equiv="pragma" content="no-cache"
+	-->
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF8" />
+	<script>
+		function test1(){
+			var a = "test";
+			var b;
+			b = a;
+			console.log(a);
+			console.log(b);
+			b = "test1";
+			console.log(a);
+			console.log(b);
+		}
+		test1();
+	</script>
+
+</head>
+<body>
+	<!-- 
+		块级元素：独占一行 可设置 width height margin height
+		//div p form table h1-h6 dl ul ol pre
+		内联元素：inline(行内) 与其他行内元素同行显示 不可设置width height margin-top/bottom padding-top/bottom 可设置margin-left/right padding-left/right
+		//span a img input br select strong em textarea label
+		inline-block：与其他行内元素同行 可设置width height margin height
+	 -->
+<form>
+	<input />
+</form>	 
+<ul>
+<li>333</li>
+</ul>
+</body>
+</html>

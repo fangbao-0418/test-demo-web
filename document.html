@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>document - 测试！！！！！！！！！！！！！！！！！！！！！！</title>
+	<meta http-equiv="content-type" content="html/text;charset=utf8" >
+</head>
+<body>
+<script>
+	(function(){ 
+		var text = document.title;
+		var Timer;
+		function consoleTest(){
+			console.log("test");
+		}
+
+		function rollTitle(){
+			if(Timer){clearTimeout(Timer)};
+			document.title = text.substring(1) + text.substring(0,1);
+			//rollTitle();
+			//console.log(rollTitle);
+			text = document.title;
+			Timer = setTimeout(
+				//"rollTitle()"  //uncaught ReferenceError rollTitle is not defined
+				()=>{
+				rollTitle()}
+				,100);
+		}
+		console.log(rollTitle);
+		rollTitle();
+
+		//计算堆栈
+		function computeMaxCallStackSize(){
+			try {
+				return 1 + computeMaxCallStackSize();
+			} catch (e) {
+				return 1;
+			}
+		}
+		console.log(computeMaxCallStackSize());
+ 	}());
+ 	
+ // 	var _st = window.setTimeout;
+	// window.setTimeout = function(fRef, mDelay){
+	//  if (typeof fRef == 'function') {
+	//   var argu = Array.prototype.slice.call(arguments, 2);
+	//   var f = function(){
+	//     fRef.apply(null, argu);
+	//   };
+	//   return _st(f, mDelay);
+	//  }
+	//  return _st(fRef, mDelay);
+	// }
+	
+
+	// function fun(num){
+	// 	console.log(num);
+	// }
+	// setTimeout("fun(100)",100);
+
+ 	(function(){
+ 		console.log("jslint 自执行函数1") //推荐
+ 	}(1))
+ 	!function(){
+ 		console.log("! 自执行函数2")
+ 	}();
+ 	void function(){
+ 		console.log("void"," 自执行函数3")
+ 	}()
+	//console.log(text);
+</script>
+</body>
+</html>

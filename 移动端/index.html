@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+
+		<!-- 
+			viewport:视口
+			user-scalable=no:禁止缩放
+			initial-scale:1.0:默认大小
+			device-width:设置视口的宽度等于设备的宽度，如果不设置默认是980px
+		-->
+		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+		<!-- 忽略识别电话邮箱 -->
+		<meta name="format-detection" content="telephone=no， email=no" />
+		<!-- webApp全屏模式 -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- 设置状态栏颜色 -->	
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<!-- QQ浏览器（x5内核）独有的META -->
+		<meta name="x5-fullscreen" content="true" /> <!-- 设置全屏 -->
+
+		<meta http-equiv="pragma" content="no-cache" /> <!-- 开发模式 无缓存 -->
+		<meta http-equiv="refresh" content="10"> <!-- 10s后 url ... -->
+		<meta http-equiv="window-target" content="_top"> <!-- 强制页面在当前窗口以独立页面显示。用来防止别人在框架里调用自己的页面 -->
+
+		<!-- 声明使用的浏览器及版本 -->
+		<meta http-equiv="x-ua-compatible" content="IE=7" />
+
+		<!--	
+			 机器人向导 robots 用来告诉搜索机器人哪些页面需要索引，哪些页面不需要索引
+			all：文件将被检索，且页面上的链接可以被查询
+			none：文件将不被检索，且页面上的链接不可以被查询
+			index：文件将被检索
+			follow：页面上的链接可以被查询
+			noindex：文件将不被检索
+			nofollow：页面上的链接不可被查询
+		 -->
+		<meta name="robots" content="index,follow" />
+		<!-- 声明搜索引擎抓取间隔 -->
+		<meta name="revisit-after" content="10 dats" />
+		<!-- 声明网页的作者信息 -->
+		<meta name="author" content="fangbao,13051605413@163.com" />
+
+		<title>移动端</title>
+		<style type="text/css">
+			@media all and (min-width: 321px) and (max-width: 420px){
+				body{
+					background: yellow;
+				}
+			}
+			/**
+             *  device-pixel-ratio:设备像素比;
+		     */
+			@media all and (-webkit-device-pixel-ratio: 2){
+				.icon{
+					width:200px;
+					height: 200px;
+					background: url(./img/drawable-xxhdpi-icon.png) no-repeat;
+					background-size:cover;
+				}
+			}
+			@media all and (-webkit-device-pixel-ratio: 3){
+				.icon{
+					width:200px;
+					height: 200px;
+					background: url(./img/drawable-xxxhdpi-icon.png) no-repeat;
+					background-size: 200px 200px
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+		<div class="icon"></div>
+		<a href="tel:123456">立即拨打电话</a>
+		<a href="sms:123456">立即发送短信</a>
+		<a href="mailto:13051605413@163.com">给我们发邮件</a>
+		<div>
+		<section>
+			<p>
+				响应式布局的解决方案：<br>
+				1)流式布局法<br>
+					->容器或者盒子的宽度一般不写固定的值，而是使用百分比（相对于视口区域的百分比）
+			</p>
+		<section>
+	</body>
+</html>

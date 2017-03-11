@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>apply,call,bind.extends -- 继承</title>
+<meta http-equiv="content-type" content="charset=utf8" >
+<script>
+	/**
+		apply 
+		Function.apply(obj,arguments)
+		obj:这个对象将代替Function类里的this对象
+		arguments:这是个数组
+    */
+	function say(){
+		console.log("my name is ",this.name," i`m ",this.age," years old");
+	}
+  	function Person(name,age){
+	  	this.name = name;
+	  	this.age = age;
+	  	this.say = say;
+  	}
+  	function Student(name,age,myClass){
+  		Person.apply(this,arguments)
+  	}
+  	var p1 = new Person("fangbao",22);
+  	p1.say();
+  	var s1 = new Student("gaoyanru",23,2);
+  	s1.say();
+</script>
+<style>
+	@keyframes mov{
+		0%{
+			top:0;
+			left:0;
+		}		
+		50%{
+			top:120px;
+			left:120px;
+		}
+		100%{
+			top:200px;
+			left:200px;
+		}
+	}
+	tt{
+		position:relative;
+		display: inline-block;
+		animation: mov 3s infinite;
+	}
+	.box{
+		width:100px;
+		height:100px;
+		background:#ccc;
+		float:left;
+		position:relative;
+		animation: mov 3s infinite;
+		animation-timing-function: cubic-bezier(.17,.67,.29,.83);
+	}
+</style>
+</head>
+<body>
+	<div class="box"></div>
+	<tt>你好！我是方宝</tt>
+</body>
+</html>

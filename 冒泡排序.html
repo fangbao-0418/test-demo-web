@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>冒泡排序</title>	
+<meta http-equiv="Content-type" content="text/html;charset=utf8" />
+<script>
+	/**
+		冒泡排序的思想 就是两个相邻的数值进性比较 如果前者数值大于后者 两者位置进行互换 第一轮将最大值放在末尾
+	再重新新一轮的比较去掉已知的最大值 （n-1）依次比较下去
+		从小到大是是将最大的排在最后
+		如果从大到小反过来排 将最小的遇到末尾
+	*/
+	function bubbleSort(arr){
+		var temp;
+		var len = arr.length;
+		while(len > 0){
+			for(var j=0; j<len; j++){
+			//第一次 0-9 第二次 0-8 第三次 0-7 。。。
+				console.log(j);
+				//每一轮都会获取最大值 放到末尾 再次比较的时候 不用再跟最后末尾进行比较
+				//核心相邻两个进行比较
+				if(arr[j]>arr[j+1]){
+					temp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = temp;
+				}
+			}
+			len--;
+		}
+		console.log(len);
+		return arr;
+	}
+	var arr = [2,53,62,1,5,7,2,0,33,6];
+	console.log(bubbleSort(arr));
+
+</script>
+</head>
+<body>
+<h1>冒泡排序</h1>
+</body>
+</html>

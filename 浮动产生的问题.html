@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>浮动问题</title>
+	<style type="text/css">
+		/*
+			有浮动产生的父盒子没有高度
+			1.父元素伪类 content:"";clear:both;display:block;
+			2.父元素overflow:hidden;
+			3.追加标签 clear:both;
+		*/
+		.box:after{
+			content:"";
+			clear:both;
+			display: inline-block;
+		}
+	/*	.box{
+			overflow: hidden;
+		}*/
+		.box span{
+			float:left;
+		}
+		.clear{
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<span>你好吗</span>
+		<ins>我是方宝，你们好吗</ins>
+		<!-- <div class="clear"></div> -->
+	</div>
+</body>
+</html>

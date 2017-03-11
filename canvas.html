@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>canvas 绘画</title>
+	<script type="text/javascript">
+		window.onload=function(){
+			console.log(document.URL)
+			console.log(document.all)
+		}
+		function Start(){
+			//console.log(document);
+			console.log("document.readyState=".document.readyState)
+		}
+		if(document.attachEvent){
+			document.onreadystatechange=function(){
+				if(document.readyState=='loaded' || documen        .readyState=='complete' || document.readyState=='interactive'){
+					 Start(); 
+				}
+			}
+		}else{
+			console.log("not ie");
+			document.addEventListener('DOMContentLoaded',Start,false);
+		}
+	</script>
+</head>
+<body>
+	<canvas id="myCanvas" width="200" height="200"></canvas>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" >
+	<style type="text/css">
+		html,body{
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		Function.prototype.myBind = function(content){
+			var _this = this;
+			var outerArg = Array.prototype.slice.call(arguments,1);
+			//->兼容
+			if("bind" in Function.prototype){				
+				return this.bind.apply(this,[content].concat(outerArg))
+			}
+			//->不兼容
+			
+			return function(){
+				var innerArg = Array.prototype.slice(arguments,0);
+				innerArg.length === 0 ? innerArg[innerArg.length] = window.event : null;
+				this.apply(content,outerArg.concat(innerArg));
+			}
+
+		}
+
+
+
+		//->柯里化函数思想：一个js预先处理的思想->利用函数执行可以形成一个不销毁的私有作用域的原理，把需要预先处理的内容都存在这个不销毁的作用域中，并且返回一个小函数，以后我们执行的都是小函数，在小函数中把之前预先存储的值进行相关的操作处理即可
+		function bind(callBack, context){
+			context = context || window;
+			var outerArg = Array.prototype.slice.call(arguments,2);
+			return function(){
+				var innerArg = Array.prototype.slice.call(arguments,0);
+				callBack.apply(context,outerArg.concat(innerArg));
+			}
+		}
+		obj = {name:"方宝",age:24}
+
+		
+	
+		function fn(num1,num2){
+			console.log(window.event)
+			//console.log(this,num1,num2);
+			console.log(this,num1,num2)
+			//console.log(window.event)
+		}
+		
+		//document.body.onclick = fn.myBind(obj,1);
+		window.setTimeout(fn.myBind(obj,1,2),0);
+		//bind 预先处理 在ie6、7、8不兼容
+		//window.setTimeout(bind(fn,obj,1,2),0);
+		//setTimeout设为0  ie下10ms  chrome5-6ms后执行
+		//document.body.onclick = bind(fn,obj,1)
+		// document.body.onclick = function(){
+		// 	console.log(this);
+		// 	//->给元素的某一个行为绑定方法，当行为触发的时候，执行对应的方法，此时方法中的this是当前元素本身；并且浏览器还会给当前的方法默认的传递一个参数值；MouseEvent(鼠标事件对象) 在IE6、7、8下没有MouseEvent 需要用window.event
+		// 	console.log(arguments);
+		// }
+
+	</script>
+</body>
+</html>

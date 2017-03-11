@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>iterator -- 迭代器</title>
+	<script type="text/javascript">
+		var myArray = [1,2,4];
+		//for-in
+		myArray.forEach(function(value){
+			console.log(value);
+			//不能使用break 且return 无效
+		})
+		for(var value of myArray){
+			console.log(value);
+			break;
+		}
+	
+		
+		//Object.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
+		var obj = {name:"fangbao",age:"28"};
+		
+		console.log(obj)
+		// obj[Symbol.iterator] = function(){
+		// 	return this;
+		// }
+
+		// obj.next = function(){
+		// 	this.i = 0;;
+		// 	 	this.i ++;	
+		// 	if(this.i <= 3){
+		// 		console.log(this.i)
+		// 		//return {done:false,value:0}
+		// 		return {done:true,value:0}
+		// 	}else{
+				
+		// 		return {done:true,value:0}
+		// 	}
+		
+			
+		// }
+		// for(let value of obj){
+		// 	console.log(value);
+		// }
+
+		var a = {
+  x: 10,
+  y: 20,
+};
+var iter = Iterator(a);
+console.log(iter.next()); // ["x", 10]
+console.log(iter.next()); // ["y", 20]
+console.log(iter.next()); // throws StopIteration
+	</script>
+</head>
+<body></body>
+</html>

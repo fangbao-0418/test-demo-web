@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/index.css" >
+</head>
+<body>
+	<div id="oDiv1">		 
+		<br>
+		<p>这是一段段落</p>
+		<span name="name" title="方宝"><b id="but1">方宝</b></span>
+		<div>my</div>
+		<div name="a" id="dd">nihao</div>
+	</div>
+	<script type="text/javascript">
+		window.onload = function(){
+			console.log("window loading")
+			console.log(document.readyState)
+		}
+		window.onload = function(){
+			console.log("window loading 2")
+			console.log(document.readyState)
+		}
+		setTimeout(()=>{
+			console.log(document.readyState);
+		},1000)
+		
+		~function(){
+			
+			console.log(document.readyState);
+
+			var oDiv1 = document.getElementById('oDiv1');
+			var bt1 = document.getElementById('but1');
+			var dd = document.getElementById('dd');
+			var i = 1
+			bt1.onclick=function(){
+				var textNode = document.createTextNode("fangbao");
+				//dom 操作 replaceChild
+				oDiv1.replaceChild(textNode,oDiv1.childNodes[2])
+				return;
+				//dom 操作 insertBefore
+				
+				oDiv1.insertBefore(textNode, oDiv1.childNodes[4]);				
+				return 
+
+				//创建Comment;
+				var comment = document.createComment("test");
+				
+				oDiv1.appendChild(comment);
+				
+				return;
+				//创建Text
+				var textNode = document.createTextNode("<div><b>gaoyanru<b></div>");
+				console.log(textNode.nodeType);
+				textNode.appendData("Mspan")
+				var ele = document.createElement("div");
+				ele.appendChild(textNode);
+				oDiv1.appendChild(ele);
+				return;
+				//dd.firstChild.deleteData(1,1);
+				dd.firstChild.insertData(5," i`m fang bao")
+				return;
+				console.log(dd.getAttribute("class"));
+				//dd.removeAttribute("class")
+
+				if(dd.getAttribute("class")){
+					dd.removeAttribute("class")
+				}else{
+					dd.setAttribute("class","ft18")
+				}
+				
+				// if(dd){
+				// 	oDiv1.removeChild(dd)
+				// }
+				
+				// console.log(this.outerHTML);
+				// console.log(this.innerHTML);
+				// var but2 = this;
+				// console.dir(but2);
+				// but2.innerHTML = "fangbao";
+				// //console.dir(but2);
+				// oDiv1.appendChild(but2);
+
+				// var frag = document.createDocumentFragment();
+				// console.log(frag);
+				// var oDiv2 = document.createElement("div");
+				// oDiv2.appendChild(document.createTextNode(i));
+				// frag.appendChild(oDiv2);
+				// oDiv2.setAttribute("id","oDiv2");
+				// oDiv2.setAttribute("class","box");
+				// oDiv1.appendChild(frag);
+				// i++
+				//this = "";
+				//oDiv.insertBefor(but2,dd);
+
+			}
+			console.log(oDiv1.childNodes);
+			console.log(oDiv1.childNodes[1].nodeType);
+			console.log(oDiv1.children);
+
+			var arr = [1,2,3];
+			console.log(6 in arr);
+			var obj = {name:"f",age:22}
+			console.log(arr.toString())
+		}()
+	</script>
+</body>
+</html>

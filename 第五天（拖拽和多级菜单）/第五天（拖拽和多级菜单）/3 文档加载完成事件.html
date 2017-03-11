@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<img src="http：//img" alt="">
+
+</body>
+</html>
+<script>
+    // 页面所有的dom元素和资源加载完成
+    window.onload = function (){
+        var div1 = document.getElementById('div1');
+        console.log(div1);
+    }
+
+    // 只要DOM结构加载完成之后就会触发
+    window.addEventListener('DOMContentLoaded',function (){
+        console.log(1);
+    });
+
+    // jQuery
+    $(function (){ // 执行js的时刻页面已经加载
+
+        $('#div1').on('click',function (){})
+
+
+    });
+
+</script>

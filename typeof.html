@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	console.log(typeof Object) //function
+	console.log(typeof null) //object
+	console.log(typeof undefined) //undefiend
+	console.log(typeof Array) //function
+	console.log(typeof [2,3]) //object
+	console.log(typeof {}) //object
+	console.log(typeof Number) //function
+	console.log(typeof 3.22) //number
+	console.log(typeof "222") //string
+	console.log(typeof 0) //number
+	console.log( [2,3] instanceof Array)
+	//console.log( Array instanceof [2,3])
+	console.log(window)
+	// function a(a,b){
+	// 	console.log(arguments);
+	// }
+	//a(1,2);
+
+	var person={fname:"John",lname:"Doe",age:25};
+	var txt="";
+	for (x in person)
+	{
+	  txt=txt + person[x];
+	}
+	//alert(txt);
+
+	(function() {
+	      var a = b = 5;
+
+	  })();   
+	// console.log(b);
+	// console.log(a);
+
+	var myObject = {
+    foo: "bar",
+    func: function() {
+    	console.log(this);
+        var self = this;
+        console.log(this.foo);  
+        console.log(self.foo);  
+        (function() {
+
+            console.log(this.foo);  
+            console.log(self.foo);  
+        }());
+    }
+};
+myObject.func();
+
+(function(){
+	var arr = [];
+	arr[0] = 0;
+	arr[1] = 1;
+	arr[2] = 2;
+	arr.foo = "22";
+	arr.bb = "22";
+	console.log(typeof arr);
+	console.log(arr)
+}())
+
+</script>
+<style>
+	.box{
+		width:100px;
+		height:100px;
+		background-color:#ccc;
+		float:left;
+		/*border:solid 0 #000;*/
+		border-width:2px;
+	/*	border:none;*/
+	}
+</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

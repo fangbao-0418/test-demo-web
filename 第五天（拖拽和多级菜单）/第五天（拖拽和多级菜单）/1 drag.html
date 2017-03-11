@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag</title>
+    <style>
+        #div1,#div2{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background: lime;
+        }
+        #div2{
+            left: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>
+<script src="event2.js"></script>
+<script>
+    var div1 = document.getElementById('div1');
+    var div2 = document.getElementById('div2');
+    drag(div1);
+    drag(div2);
+
+    function drag(ele){
+        on(/*div1*/ele,'mousedown',down);
+        function down(e){
+            this.l = e.pageX - this.offsetLeft;
+            this.t = e.pageY - this.offsetTop;
+            if(this.setCapture){ // ie
+                this.setCapture();
+                on(this,'mousemove',move);
+                on(this,'mouseup',up);
+            }else{ // 标准
+                var that = this; // div1
+                that.MOVE = function (e){
+                    this;// document
+                    move.call(/*div1*/that,e); // 保证这个move方法中的this是盒子div1
+                }
+
+                on(document,'mousemove',that.MOVE);
+                that.UP = function (e){
+                    up.call(that,e);
+                }
+                on(document,'mouseup',/*up*/that.UP);
+            }
+        }
+        function move(e){
+            var left = e.pageX - this.l;
+            var top = e.pageY - this.t;
+            this.style.left = left + 'px';
+            this.style.top = top + 'px';
+            e.preventDefault();
+        }
+        function up(e){
+            // this
+            if(this.releaseCapture){
+                this.releaseCapture();
+                off(this,'mousemove',move);
+                off(this,'mouseup',up);
+            }else{
+                off(document,'mousemove',this.MOVE);
+                off(document,'mouseup',this.UP);
+            }
+        }
+    }
+
+
+
+
+
+</script>

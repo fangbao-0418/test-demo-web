@@ -1,0 +1,26 @@
+body{background:yellow;}
+.box{color:red;}
+.ft18{font-size:18px;}
+p+div{
+	color:#fff;
+}
+.box{
+	width:200px;
+	height:200px;
+	position:fixed;
+	border:1px solid red;
+	padding:10px;
+	overflow: hidden;
+	list-style: none;
+	margin:auto 0 auto -100px;
+	top:0;
+	bottom:0;
+	left:50%;
+	color:#000;
+	background: #fff;
+}
+.box li{
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}

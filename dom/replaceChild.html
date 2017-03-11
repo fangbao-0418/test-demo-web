@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>dom节点的替换--replaceChild</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<article>
+		docuement.getElementById 在IE6、7中会把input的name也作为id，并不区分ID的大小写
+	</article>
+	<article>
+		实战注意：不要让表单元素name与元素ID重复
+		不要用大小写区分我们的不同元素
+	</article>
+	<ul class="box">
+		<li>十二届全国人大五次会议在人民大会堂开幕</li>
+		<li>习近平看望党外政协委员并参加联组会</li>
+		<li>李克强为什么连续5年来同一个政协联组？</li>
+	</ul>
+	<script type="text/javascript">
+		var box = document.getElementsByTagName("li");
+		console.log(box);
+		var ele = document.createElement("li");
+		ele.innerHTML = "fangbao";
+		ele.setAttribute("title",ele.innerHTML);
+		ele.setAttribute("style","color:red")
+		console.log(box[0])
+		box[0].parentNode.replaceChild(ele,box[1]);
+		//toLowerCase 字符串转为小写 
+		//toUpperCase 字符串转为大写
+		console.log(box[0].nodeType,box[0].nodeName.toLowerCase())
+		console.log("li".toUpperCase())
+		console.log(box)
+		//repalceChild 替换子节点 第一个参数替换第二个参数
+
+		var curWidth = document.documentElement.clientWidth || document.body.clientWidth;
+		var curHeight = document.documentElement.clientHeight || document.body.clientHeight;
+		console.log("浏览器的宽度为：",curWidth);
+		console.log("浏览器的高度为：",curHeight);
+
+		//querySelector&&querySelectorAll 参考css选择器规则
+		var liEle = document.querySelectorAll("li[title='fangbao']");
+		console.log(liEle)
+
+		var parentNode = document.getElementsByTagName("ul")[0];
+	
+		var newLiEle = parentNode.childNodes[1].cloneNode(true);
+		newLiEle.innerHTML = "new Element"
+		//parentNode.appendChild(newLiEle);
+		parentNode.insertBefore(newLiEle,null);
+		console.log("newLiEle.nodeType=",newLiEle.nodeType)
+		console.log("parentNode.firstChild.nodeType=",parentNode.firstChild.nodeType);
+		parentNode.removeChild(box[1]);
+		
+		for(let i=0;i<parentNode.childNodes.length;i++){
+			console.log(parentNode.childNodes[i].nodeType);
+		}
+
+		parentNode.childNodes[0].nextSibling.innerHTML = "111";
+		
+		console.log(box[0].nextSibling.nodeName)
+	</script>
+</body>
+</html>

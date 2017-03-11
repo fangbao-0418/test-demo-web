@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- 
+!DOCTYPE
+告知浏览器用什么标准来解析这个文档
+标准模式的排版和js运作模式都是以该浏览器支持的最高标准运行
+兼容模式 页面以宽松的往后兼容的方式来显示 模拟老式浏览器的行为以防止站点无法工作
+ -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DIV居中</title>
+	<style type="text/css">
+		html,body{
+			width:100%;
+			height:100%;
+		}
+		body{
+			position:relative;
+		}
+		.alertBox{
+			width:80%;
+			height:200px;
+			background: #000;
+			float: left;		
+			position:absolute;
+			top:0px;
+			left:10%;
+			bottom:0px;
+			margin: auto 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="alertBox"></div>
+</body>
+</html>

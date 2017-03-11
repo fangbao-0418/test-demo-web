@@ -1,0 +1,13 @@
+1. 合并 压缩
+2. 多用继承
+3. 合并icon 减少http请求
+4. css文件在head里边加载 避免在body里找到css文件再重新渲染
+5. 层级尽量控制在3级内
+6. 不要用类名和标签名来限制id id选择器是唯一的
+7. 尽量用margin padding 而不用padding/margin-left/right/bottom/top等
+8. 用#999 而不用#999999
+9. 避免通配符*
+10. 不用乱用reset重置样式 推荐normallize.css 符合基本浏览器兼容
+11. 公共样式写一个文件里 
+12. 避免css回流(reflow) 回流即布局发生变化(比如：display:none) 重绘(repaint) 重绘即字体颜色 背景颜色发生变化影响不大
+13. gzip压缩

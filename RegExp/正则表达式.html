@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>正则表达式</title>
+</head>
+<body>
+
+<h1>元字符以转义符</h1>
+<table>
+	<thead>
+	<tr>
+		<td colspan="2">
+			元字符是拥有特殊含义的字符,
+			所有元字符包括{[(.?+^*$\|)]}
+		</td>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>.</td>
+		<td>匹配单个任意字符，除了换行和行结束符</td>
+	</tr>
+	<tr>
+		<td>|</td>
+		<td>左右两边表达式“或”关系</td>
+	</tr>
+	<tr>
+		<td>?</td>
+		<td>匹配0个或1个</td>
+	</tr>
+	<tr>
+		<td>()</td>
+		<td>用于定义捕捉组，可以单独拿到捕捉组匹配项，捕捉组内的匹配模式可以被整体修饰</td>
+	</tr>
+	</tbody>
+</table>
+<script type="text/javascript">
+	//(?:) 只匹配不捕捉
+
+	//match只能捕捉大正则匹配内容
+	//replace 第一个值是一个正则他的实现原理
+	"zhu 2 zhu2".replace(/zhu/g,"猪");
+	//replace 第二个参数换成一个函数
+	//1）匿名函数执行多少次，取决于正则能在字符串中捕捉多少次
+	//2) 每一次执行的匿名函数传递的函数值arguments 和我们通过exec捕捉道德结果非常类似（及时正则有分组，我们同样可以通过arguments获取到分株捕捉的内容）
+	//3）你返回的结果是啥，就相当于把当前这一次大正则捕捉的内容替换成你返回的内容
+
+	var str = "20170305";
+	var arg = ["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"];
+	var reg = /(\d{2})(\d{2})/g;
+
+	var match = reg.exec(str);
+	console.log(match);
+	var newStr = str.replace(reg,function(){
+		console.log(arguments)
+		return arg[arguments[0]];
+	})
+	console.log(newStr,str);
+</script>
+
+</body>
+</html>

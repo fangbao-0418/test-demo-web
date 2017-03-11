@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>原型扩展</title>
+</head>
+<body>
+<script type="text/javascript">
+	 
+		//1. 将原型的引用地址进行赋值
+		var pro = Function.prototype;
+		//2. 重构原型对象-> 自己新开辟一个堆内存 将原来浏览器自带的替换掉;浏览器自带constructor 指向当前对象 如果是自己重构的话原型上就没有constructor 
+		function Fn(){
+			this.x = 100;
+		}
+		Fn.prototype = {
+			constructor:Fn, // 需要手动添加contructor 如果没有 则忘原型链上查找
+			a:function(){},
+			b:function(){}
+		}
+		var f = new Fn();
+		console.log(f.constructor) // -> function object();
+		//2.用这种方法给内置类增加共有的属性
+		Array.prototype.unique = function(){}
+
+		Array.prototype = {
+			constructor:Array,
+			unique:function(){
+	
+			}
+		}
+		//我们这种方法会把之前已存在原型上的属性和方法替换掉 所以这种方式修改内置类的话 浏览器会把我们写的屏蔽掉就是说自己写的没用  
+		//但是我们通过下面的方式增加方法 如果方法名和原来内置的方法名重复 会把人家之前内置的修改掉
+		//我们以后在内置类的原型上增加方法，命名都需要家特殊的前缀
+		Array.prototype.sort = function(){
+			console.log(this)  //this -> ary
+		}
+		var ary = [1,2,2,13,2]
+		ary.sort();
+ 		
+ 		var obj = {name:"珠峰",age:7} //对象字面量 
+
+ 		Object.prototype.add = function(){
+ 			console.log(2);
+ 		};
+ 		obj.add()
+ 		console.log(obj.hasOwnProperty("add"));
+ 		// function A(){
+ 		// 	this.x = "100";
+ 		// }
+ 		// A();
+ 	 	console.log(f.constructor == Fn);
+
+ 	 	class A {
+
+ 	 	}
+ 	 	obj.prototype = A;
+ 	 	class B extends A {}
+ 	 	var b = new B();
+ 	 	console.log(Object.prototype);
+
+
+
+ 	 	//console.log(Fn.prototype);
+
+ 	 	console.log(f.hasOwnProperty("a"))
+
+ 	 	console.log(B.isPrototypeOf(A));
+ 	 	
+ 	 	console.log(b.__proto__.constructor.__proto__ == A);
+ 	 	console.log(B.__proto__.prototype.constructor == A)
+</script>
+</body>
+</html>

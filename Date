@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<p>
+	星期一:Monday
+	星期二:Tuesday
+	星期三:Wednesday
+	星期四:Thursday
+	星期五:Friday
+	星期六:Saturday
+	星期日:Sunday
+	一月：January
+	二月：February
+	三月：March
+	四月：April
+	五月：May
+	六月：June
+	七月：July
+	八月：August
+	九月：September
+	十月：October
+	十一月：November
+	十二月：December
+	</p>
+	<script type="text/javascript">
+		function formatTime(){
+			var time = new Date("2015/12/01 12:20:20");
+
+			var year = time.getFullYear();
+			var month = time.getMonth()+1;//0-11
+			var day = time.getDate();
+			var week = time.getDay(); //0-6 周日到周六
+			var hours = time.getHours();
+			var minutes = time.getMinutes();
+			var seconds = time.getSeconds();
+			var mlSeconds = time.getMilliseconds();
+			return 
+		}
+	</script>
+</body>
+</html>

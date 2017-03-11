@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<script type="text/javascript">
+		if([] == false){
+			console.log('[] is not false')
+		}
+		if([] == 0){
+			console.log('[] is not false')
+		}
+		if([]){
+			console.log('[] is not false')
+		}
+		if({}){
+			console.log('{} is not false')
+		}
+		console.log({}.toString())
+		console.log([].toString())
+		console.log([] == null)
+		console.log(a);
+		var a;
+		console.log("undefined == null",undefined == null);
+		console.log("undefined == 0",undefined == a);
+		console.log("a == null ",a == null);
+		console.log("a == false ",a == false);
+		console.log("" == NaN);
+		console.log([])
+		if({} == "[object Object]"){
+			console.log('{} is not false')
+		}
+		var i = 1;
+		console.log(++i)
+		console.log([] == [[]][+[]]);
+		console.log(typeof [[]][+[]]);
+		console.log(typeof [])
+		console.log(++[[]][+[]]+[+[]]);
+
+		var array = [1,1,2,2,33];
+
+		function isBigEnough(value,pos,self) {
+			// console.log("--",self);
+			// console.log(self.indexOf(33))
+  	// 		return value >= 10;
+  			if(self.indexOf(value) == pos){
+  				return value;
+  			}
+		}
+
+		var newarr = array.filter(isBigEnough);
+		console.log(newarr)
+		// newarr.push(24);
+		// console.log(array)
+		console.log({} == {})
+	</script>
+</head>
+<body></body>
+</html>

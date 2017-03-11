@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<mete charset="utf-8">
+	<title>RegExp - exec</title>
+	<script type="text/javascript">
+		var reg = /fangbao((( is)? me)? bao)?/g;
+		var str = "fangbao1 is1 me1 bao1 fangbao1 me fangbao1";
+		var matches = reg.exec(str);
+		console.log(matches);
+		
+		console.log(reg.test(str));
+
+		var pattern = new RegExp("\\[bc\\]at",'gi');
+		console.log(pattern.test("[bc]at"))
+		console.log(pattern.toString());
+		console.log(pattern.valueOf());
+		// var text = "cat, bat, sat ,fat";
+		// var patt = /.at/g;
+		 
+		// var matches = null;
+		// while(matches = patt.exec(text)){
+		// 	console.log(matches);
+		// }
+
+		function t(){
+		    var undefined = 10;
+		    console.log(undefined);
+		}
+
+		t();
+		console.log( void(t()) )
+		//console.log()
+
+		//必须是A-z a-A报错
+		console.log(/[A-z]+/.exec("Aba"));
+	</script>
+</head>
+<body></body>
+</html>

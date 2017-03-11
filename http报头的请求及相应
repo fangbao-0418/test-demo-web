@@ -1,0 +1,20 @@
+1.http请求报文
+1)请求行(request-line) GET /index.html HTTP/1.1
+2)请求头(headers) 键值对形式
+3)blank-line 空格 发送回车\r换行\n 告诉服务器一下不在有请求头
+4)request-body请求数据
+2.http报文 也叫响应
+1)状态行(status-line)
+2)headers
+3)blank-line 空白行
+4)response-body
+
+http get和post的区别
+1.get实在url之后就是把数据放在request-line请求行里 以？分割url和参数数据
+多个参数用&拼接
+post是存放在requset-body请求主体里 
+get请求的数据会在url上显示 post提交地址栏不变
+2.传输大小
+http没有限制传输数据的大小和长度 主要影响get的因素有浏览器版本，操作系统，服务器
+post理论不受限 但实际各自web服务器规定了post提交的数据的大小限制
+3.安全性post较高
