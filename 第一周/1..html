@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //js数据类型：(本质区别 一个直接操作值 一个操作一个地址)
+    //基本数据类型：number string boolean null undefined
+    //引用数据类型::
+    //d对象数据类型object:{} [] /^$/ Date
+    //function
+//    function fn() {
+//        console.log('aa');
+//    }
+//    console.log(fn);//(把函数定义的部分在控制台输出(函数本身))
+//    console.log(fn());//把当前函数执行的返回结果输出(return后面写的是啥 就返回啥 如果没有return 返回undefined)
+    //1.全局作用域 当游览器加载html页面的时候 首先会提供一个供全局js代码执行的环境 (window/后端叫global)
+
+    //2.预解释(变量提声):在当前的作用域中 js代码执行之前 游览器首先会默认的把所以带var 或者function 的进行提前的声明或者定义
+    //1)理解声明和定义
+    //声明(declare):var num ->告诉游览器在全局作用域中有num的变量了 (一个变量只声明没有赋值 是undefined)
+    //定义(defined): num =12 ->给变量进行赋值
+    //2) 对于带var和function关键字的在预解释的时候操作不一样
+    //var -> 在预解释的时候只是提前的声明
+    //function ->在预解释的时候提前声明+定义都完成啦
+    //3) 预解释只发生在当前的作用域中 例如 开始只对window下的进行预解释；只有函数执行的时候才会对函数中的进行预解释
+    var num = 12;
+    var obj = {name:"gyr",age:"22"};
+    function fn() {
+        var total = num1 + num2;
+        console.log(total)
+    }//首先开辟一个新的堆内存空间 把函数体的代码以字符串的形式存放在堆内存
+    //过程：var num obj 声明加定义一个函数fn  -->第二步代码从上到下执行 num =12 obj = 地址 函数因为定义过了 所以直接跳过
+    //3.js中内存的分类
+    //栈内存：用来提供一个供js代码执行的环境 ->作用域：全局作用域 私有作用域 (预解释发在栈内存)
+    //堆内存:用来存储引用数据类型的值  -> 对象存储的是属性名和属性值 函数储存的是代码字符串
+</script>
+</body>
+</html>
