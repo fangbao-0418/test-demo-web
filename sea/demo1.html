@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>seajs 测试</title>
+	<link rel="stylesheet" type="text/css" href="css/swiper.min.css" >
+	 <!-- Demo styles -->
+    <style>
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 500px;
+        height: 300px;
+        margin: 20px auto;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    </style>
+</head>
+<body>
+<div id="doc"></div>
+<!-- Slider main container -->
+<div class="swiper-container-top">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+         <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+    </div>
+</div>
+
+<div class="swiper-container-bottom">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+         <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/sea.js"></script>
+<script type="text/javascript" src="js/sea.config.js"></script>
+<script type="text/javascript">
+	seajs.use(["jquery","main","swiper"],function(){
+		
+	})
+</script>
+</body>
+</html>
