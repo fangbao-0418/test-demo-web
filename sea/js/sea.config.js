@@ -9,7 +9,10 @@ seajs.config({
     "person": "app/hello/src/person.js",
     "jquery": "js/jquery.min.js",
     "main": "app/hello/src/main",
-    "swiper": "js/swiper.min.js"
+    "swiper": "js/swiper.min.js",
+    "react": "js/react.min.js",
+    "react-dom": "js/react-dom.min.js",
+    "browser":"js/browser.min.js"
   },
   // 变量配置
   vars: {

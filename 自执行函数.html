@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>自执行函数</title>
+</head>
+<body>
+	<script type="text/javascript" defer src="./js/auto-execute.js">
+	(function(){
+		alert(2);
+	})();
+
+	(function(){
+		alert(4);
+	})()
+</script>
+
+	<div id="box">
+		<h1>自执行函数</h1>
+	</div>
+
+
+</body>
+</html>
