@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>transform 改变,变形</title>
 	<style type="text/css">
 	ul{
 
@@ -35,7 +36,6 @@ color:red;
 .cubeBox{
 	padding: 0px;
 	margin: 0px;
-	position: absolute;
 	width: 400px;
 	height: 400px;
 	transform-style: preserve-3d;
@@ -61,14 +61,18 @@ color:red;
 </ul> -->
 <ul class="cubeBox">
 	<li>
-
 		<img src="./img/zf_cube1.png" /></li>
 		<li><img src="./img/zf_cube2.png" /></li>
 		<!-- 	<li><img src="./img/zf_cube3.png" /></li>
 		<li><img src="./img/zf_cube4.png" /></li>
 		<li><img src="./img/zf_cube5.png" /></li>
 		<li><img src="./img/zf_cube6.png" /></li> -->
-	</ul>
-
+</ul>
+<h1>rotateX</h1>
+<img src="./img/zf_cube1.png" width="200px" style="transform: perspective(1800px) rotateX(45deg);transform-style: preserve-3d;"/>
+<h1>rotateY</h1>
+<img src="./img/zf_cube1.png" width="200px" style="transform: perspective(800px) rotateY(45deg)"/>
+<h1>rotateZ</h1>
+<img src="./img/zf_cube1.png" width="200px" style="transform: rotateZ(45deg)"/>
 </body>
 </html>
