@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>你好吗世界</div>
+</body>
+<script>
+    //match 在字符串中检索指定的值 两种用法
+    var str = "test 1 word! 4 0 9";
+    console.log(str.match("word"));
+    console.log(str.match(/\d+/g));//\d表示0-9 +表示匹配前面的表达式一次或多次
+    console.log(str.match(/\d+/));//g多次匹配
+//    console.log(str.match(/a*/));
+    console.log('a' + 'b' + 'c'==='abc');
+    var oDiv = document.getElementsByTagName('div')[0];
+    console.log(oDiv);
+    var str1 = oDiv.innerText;
+    console.log(str1);
+    var len = str1.substring(str1.length-2,str1.length);
+    console.log(len);
+</script>
+</html>

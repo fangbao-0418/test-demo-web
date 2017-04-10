@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>git</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //1. git 分布式版本控制系统(就是很多人可以一起修改一个文件 不但可以记录每个人做了什么修改 并且可以把每个人的修改合并到一起的一个系统)
+    //2. 集中式和分布式区别
+    //1) 集中式需要联网 代码存在一台中央服务器上 如果服务器坏了 所有人不能工作
+    //2) git不需要联网 代码存在本地 本身就是一台服务器 即使一个人的坏了 别人都可以正常使用 有暂存区的概念
+    //3.git安装成功标志 Windows 右击有git bash here 命令
+    //-->安装成功后执行以下两条命令(因为是分布式的所以每个人机器要自报家门)--执行一次就好 默认全局都是 但是读取时候会先读取本地指定的 如果没有再找全局的
+//    git config --global user.name "Your Name"
+//    git config --global user.email "email@example.com"
+    //->创建版本库 (相当于本地新建一个文件即仓库repository)
+    //1)mkdir 文件名(创建一个新文件)  cd 文件名 pwd 显示当前目录
+    //-->git init 把当前目录变成git可以管理的仓库
+    //-->git add . 把文件添加到暂存区
+    //-->git commit -m "注释" 把暂存区的所有内容提交到当前分支
+    //1)如果不把工作区的修改提交到暂存区 那么commit的时候是不会提交工作区的修改的
+    //1)文件在的位置 就是工作区
+    //-->git status 查看工作区的状态(比如哪个文件修改了 新加了什么文件)
+    //-->git diff 查看具体修改了什么内容
+    //1)git diff HEAD 文件名 查看当前分支下这个文件修改了什么(即版本库和工作区内容不同)
+    //-->git log 查看最近到最远提交的日志(即-m后面的注释) 参数 --pretty=oneline 可以简单看到每次提交备注
+    //-->git reset --hard HEAD^ 回退到上一个版本 HEAD~10回退到上10个版本
+    //-->git reset --hard 3628164 回退之前的那个版本号 就可以找回刚才回退之前的版本了
+    //1)HEAD表示当前版本 是一个指针 指向谁谁就是当前版本(git内部所以回退非常快)
+    //2)log是日志的意思 日志就是你的操作记录
+    //-->git reflog 记录你每次的命令操作日志 然后即使你关闭git 再次打开通过这个命令也可以会退到你没回滚之前的版本
+    //-->git checkout --文件名 丢弃工作区的修改(如果没在暂存区就改到和版本库一样的 如果在缓存区之后又做了修改就改到和缓存区一样的内容)  就是用仓库的版本替换工作区的版本(删除也是一样)
+    //1)如果不加--就表示切换到另一个分支
+    //2)如果保存在暂存区了 但是又不想提交了-->git reset HEAD readme.txt 之后再git checkout就可以把工作区的版本和仓库的版本改成一个版本了
+    //3) rm 文件名 删除
+    //-->git rm 文件名 删除文件 --之后直接 git commit 就可以提交到仓库 但是如果直接执行rm 文件名 就需要先执行git add 再 git commit--->这种情况是确定要删除的文件 如果是不小心删错了可以用 git checkout 进行回退
+    //-->git remote -v 查看现在的远程分支指向哪个
+    //-->git remote origin 远程仓库地址  向这个远程仓库推送代码(添加成功之后你的远程仓库地址就叫origin了)
+    //-->git push -u origin master 推送到远程仓库(origin代表远程仓库地址 -u因为第一次推送因为这样本地就不会把master分支推送到远程仓库的新的master分支 而且还会把本地的master分支和远程的master分支关联起来 以后就省事啦)
+    //1)之后再用 git push origin master
+    //-->git clone 远程仓库地址  克隆远程仓库地址到本地
+    //HEAD-->branch(分支)-->分支指向最新代码
+    //-->git checkout -b branchName 创建并且切换到分支下面 ==>相当于
+    //git branch branchName 创建新分支 git checkout branchName 切换到新分支下
+    //-->git branch 查看当前分支
+    //-->git merge branchName 把指定分支合并到当前切换到的分支下面 ==>合并速度很快因为相当于 master的指针指向新分支dev的最新代码
+    //-->git branch -d branchName 删除分支
+    //以上创建分支最后完成任务删除掉 常用来 编写自己代码创建一个分支 编写完合并到主分支上 然后删除自己的分支
+    //冲突:两人同时修改一个文件的同一个地方的时候 就会在你提交或者合并分支的时候出现冲突 你把冲突在本地解决好 再提交就可以了 ===>git log --graph 查看分支合并图
+    //分支管理策略:
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>this</title>
+</head>
+<body>
+<div id="div1">点我</div>
+</body>
+</html>
+<script>
+    //1理解
+    function fn(){
+        console.log(this);
+    }
+    var obj = {sum : fn};
+    fn();//window
+    obj.sum();//obj
+
+    function sum() {
+        console.log(this);//window
+        fn();//window
+    }
+    sum();
+
+    var oo = {
+        sum: function() {
+            console.log(this);//oo
+            fn();//window
+        }
+    };
+    oo.sum();
+
+    //自执行函数
+    var f = {
+        fn:(function(){
+            console.log(this);//window
+            return function() {
+                console.log(this + "返回值");
+            }
+        }())
+    };
+    var ff = f.fn;
+    ff();//window
+    f.fn();//this为f
+
+    var oDiv = document.getElementById('div1');
+    oDiv.onclick = fn;//div
+    oDiv.onclick = function() {
+        console.log(this);//div
+        fn();//window
+    }
+</script>

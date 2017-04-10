@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--通过 name实现单选-->
+<input type="radio" value="男" name="sex" checked/>男
+<input type="radio" value="女" name="sex"/>女
+<input type="button" value="点击获取性别" id="btn"/>
+<div id="div1">
+    <h1>aa</h1>
+    <!--注释-->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+</body>
+</html>
+<script>
+    var oBtn = document.getElementById('btn');
+    var oSex = document.getElementsByName('sex');
+    var con = '';
+    oBtn.onclick = function() {
+        for(var i = 0;i < oSex.length;i++){
+            if(oSex[i].checked){
+                con = oSex[i].value;
+                break;//因为单选只有一个如果找到就直接break不需要再往后找调出循环
+            }
+        }
+        console.log(con);
+    };
+    var curWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    console.log(curWidth);
+
+    var oDiv = document.getElementById('div1');
+    console.dir(oDiv.childNodes);//获取所有子节点
+    console.dir(oDiv.children);//获取所有元素子节点
+    console.dir(oDiv.parentNode);//获取父亲节点
+    console.dir(oDiv.previousSibling);//获取哥哥节点
+    console.dir(oDiv.nextSibling);//获取弟弟节点
+    console.dir(oDiv.firstChild);//获取所有子节点中第一个
+    console.dir(oDiv.lastChild);//获取所有子节点中最后一个
+
+    //模拟children方法实现获取指定元素下的子节点
+    /*
+    * getMyChildren:获取指定元素下的所有元素子节点
+    * @parameter:
+    *   ele:我们获取谁下面的就把谁传递进来
+    *   tagName:筛选我想获取的元素名
+    * @return:
+    *   我们最后获取的元素子节点
+    * by gyr on 2017/04/06
+    */
+    function getMyChildren(ele,tagName) {
+        var nodes = ele.childNodes;
+        var curChild = [];
+        for (var i = 0; i < nodes.length; i++) {
+            var cur = nodes[i];
+            if(cur.nodeType == 1){
+                if(tagName){//写法好处可以传递多个参数 当这个参数传递的时候才会进行相应的操作
+                    if(cur.nodeName.toLocaleLowerCase() == tagName.toLocaleLowerCase()){
+                        curChild.push(cur);
+                    }
+                }else{
+                    curChild.push(cur);
+                }
+            }
+        }
+        console.log(curChild);
+        return curChild;
+    }
+    getMyChildren(oDiv);
+    getMyChildren(oDiv,'H1');
+</script>
