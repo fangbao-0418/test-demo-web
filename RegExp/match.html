@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var str = "aabbccdd2d2dd";
+    console.log(str.match("b"));
+    //匹配dd前面的字符串
+    console.log(str.match(/\w+(?=dd)/));
+    //匹配dd前的3个字符串
+    console.log(str.match(/\w{2}(?=dd)/g));
+    var money = 45646222222465.55;
+    var res = money.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g,function($0,$1){
+      console.log(arguments)
+      console.log($1);
+      return arguments[1] + ","
+      //return arguments[0];
+    })
+    console.log(res);
+
+    console.log(/(?:\d+)/.exec("abc123"))
+  </script>
+</body>
+</html>
