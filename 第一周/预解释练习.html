@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="div1">点我</div>
+<script>
+   /* //1.3练习 带var不带var区别
+    //console.log(num);//num is not defined
+    num = 12;
+    console.log(num);//window.num
+    function fn() {
+        //console.log(total);
+        total = 100;//window.num
+    }
+    fn();
+    console.log(total);
+    //1.4 in判断
+    var obj = {name:'gyr'};
+    console.log("name" in obj);
+    console.log("eat" in obj);
+    //1.4 条件是否成立都要预解释
+    if(!("num1" in window)) {
+        var num1 =12
+    }
+    console.log(num1);//undefined
+    //1.4 两种区别 建议采用第一种方式进行函数定义(只能在下面执行)
+    //fn1();//fn1 is not a function因为预解释所以不能在之前执行函数了
+    var fn1 = function () {
+        console.log("ok");
+    };//匿名函数之函数表达式:把函数定义的部分当做一个值赋值给我们的变量或者是元素的某一个事件
+    fn1();
+    fn2();
+    function fn2() {
+        console.log("ok");
+    }
+    fn2();
+    //1.4 自执行函数
+    (function(num){})();
+    ~function(num){}();
+    +function(num){}();
+    -function(num){}();
+    !function(num){}();
+    //1.4 函数中return下面的代码虽然不再执行了但是会进行预解释;return后面跟着的都是我们返回的值所以不进行预解释
+    function fn3() {
+        console.log(con);//undefined
+        return function() {
+
+        };
+        var con = 100;
+    }
+    fn3();
+    //1.4 在js中如果变量的名字和函数的名字重复了 也算冲突
+    var fn4 = 13;
+    function fn4() {
+        console.log("ok");
+    }
+    //1.4 理解预解释(1.声明+定义fn5=xxxfff111;2.声明fn5其实不需要因为不会重复声明；3.声明(不需要)+定义函数fn5=xxxff222;4.代码重上到下执行 结果 2 2 fn5=10 所以第三次执行报错)
+    fn5();
+    function fn5() {console.log(1);}
+    fn5();
+    var fn5 = 10;
+    fn5();
+    function fn5() {console.log(2);}
+    fn5();
+    //1.5 上级作用域
+    var num2 = 12;
+    function fn6() {
+        var num2 = 120;
+        return function() {
+            console.log(num2);
+        };
+    }
+    var f = fn6();
+    f();
+    ~function() {
+        var num2 = 1200;
+        f();
+    }();*/
+    //1.6 不能销毁私有作用域的情况
+    /*function fn() {
+        var num = 100;
+        return function() {
+            num++;
+            console.log(num);
+        }
+    }
+    var f = fn();*/
+    /*var oDiv = document.getElementsByClassName('div1')[0];//通过DOM方法获取到的元素或者元素集合数据类型都是对象数据类型
+    console.dir(oDiv);
+    ~function(){
+        oDiv.onclick = function () {
+
+        }
+    } ();//当前自执行函数形成的这个私有作用域不销毁*/
+  /* function fn() {
+       var num = 100;
+       return function() {
+
+       }
+   }
+    fn()();//让返回的小函数紧接着再执行-->属于不立即销毁*/
+</script>
+<script>
+    //作用域练习题
+</script>
+</body>
+</html>
