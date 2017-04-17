@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background: #ffb028;
+            animation: changeBg1 3s 3s;
+            -webkit-animation: changeBg1 3s;
+        }
+        @keyframes changeBg {
+            from{background:lightblue;}
+            to{background: royalblue}
+        }
+        @-webkit-keyframes changeBg {
+            from{background:lightblue;}
+            to{background: royalblue}
+        }
+        @keyframes changeBg1 {
+            0% {background:lightblue;top:100px}
+            50%{background: royalblue;top:200px}
+            100%{background: yellowgreen;top:300px}
+        }
+        @-webkit-keyframes changeBg1 {
+            0% {background:lightblue;top:100px}
+            50%{background: royalblue;top:200px}
+            100%{background: yellowgreen;top:300px}
+        }
+    </style>
+</head>
+<body>
+<div class="div1"></div>
+</body>
+</html>
