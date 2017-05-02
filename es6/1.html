@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    //const name = 'gyr'; name = 'fb';
+//    const names = ['gyr'];
+//    names.push('fb');
+//    console.log(names);
+//    const A = '0';
+//    {
+//        const A = '1';
+//        console.log(A)
+//    }
+//    console.log(A);
+//    var [name,age] = ['gyr', 8];
+//    console.log(name, age);//gyr 8
+//    var [x,[y],z] = [1, [3, 4, 5], 8, 9];
+//    console.log(x, y, z);//1,3,8
+//    var [x,[y,z],h] = [1, [2, 3, 4]];
+//    console.log(x, y, z, h);//1,2,3,undefined
+//    {
+//        let [, , x] = [1, 2, 3];
+//        console.log(x);
+//    }//3
+//    let {foo : baz } = {foo: 'aa', baz: 'bb'};
+//    console.log(baz);//aa
+//    //console.log(foo);//报错
+//    var obj = {name:'zfpx',age:8};
+//    var {name,age} = obj;
+//    let {name: myname, age: myage} = obj;
+//    console.log(name,age,myname,myage);
+//    let [a = "a", b = "b", c =new Error('C必须指定')] = [1, , 3];
+//    console.log(a, b, c);
+//    function ajax (options) {
+//        var method = options.method || "get";
+//        var data = options.data || {};
+//        console.log(method,data);
+//    }
+////    function ajax ({method = "get", data}) {
+////        console.log(arguments);
+////    }
+//    ajax({
+//        method: "post",
+//        data: {"name": "zfpx"}
+//    });
+//    var name = 'zfpx',age = 8;
+//    let desc = `${name} is ${age} old!`;
+//    console.log(desc);
+//    var str = `<ul>
+//        <li>a</li>
+//        <li>b</li>
+//        </ul>`;
+//    console.log(str);//所有模板字符串的空格和换行，都是被保留的
+//    var name = 'zfpx',age = 8;
+//    function desc(strings,...values){
+//        console.log(strings,values);
+//    }
+//    desc`${name} is ${age} old!`;
+//    console.log('x'.repeat(0));
+    let print = function(a,b,c){
+        console.log(a,b,c);
+    };
+    print([1,2,3]);
+    print.apply(null,[1,2,3]);
+    print(...[1,2,3]);
+    var arr1 = [1, 3];
+    var arr2 = [3, 5];
+    var arr3 = arr1.concat(arr2);
+    var arr4 = [...arr1, ...arr2];
+    console.log(arr3,arr4);
+    function max(a,b,c) {
+        console.log(Math.max(...arguments));
+    }
+    max(1, 3, 4);
+</script>
+</html>
