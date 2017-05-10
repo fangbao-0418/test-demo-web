@@ -22,4 +22,63 @@
     var len = str1.substring(str1.length-2,str1.length);
     console.log(len);
 </script>
+<script>
+    //数据类型
+    console.log(Number('12.00'));
+    console.log(Number('12px'));
+    console.log(parseInt('12px'));
+    console.log(parseInt('12px13'));
+    console.log( parseInt('zhufeng2015'));
+    console.log(parseInt('12.5px'));
+    console.log(parseFloat('12.5px'));
+    console.log(Number('12.5px'));
+    // == 比较
+    var obj1 = {name:'zhangsan',age:8};
+    var obj2 = {name:'zhangsan',age:8};
+    var obj3 = obj2;
+    console.log(obj1 == obj2);
+    console.log(obj2 == obj3);
+    console.log([]==false);
+    var obj = {age:7};
+    var arr = [7];
+    console.log(arr.toString());
+    console.log(obj == 7);
+    console.log(arr == 7);
+    console.log(1 == true);
+    console.log(2 == true);
+    console.log(2 == false);
+    console.log(12=='12px');
+    console.log(null==undefined);
+    //===
+    console.log("1" === 1);
+    console.log(0 === false);
+    console.log(null === undefined);
+    //! !!
+    console.log(![]==true);
+    console.log(!![]==0);
+</script>
+<script>
+    //数组
+    var ary = [1,2,3,4,5,6];
+    var res = ary.splice(2,2,9);
+    console.log(ary);
+    console.log(res);
+    console.log([].toSring == '' == false);
+    console.log(ary.join('+'));
+    var re = ary.join('+');
+    console.log(eval(re));
+    console.log(ary.reverse());
+    var arr = [2,6,5,9,4,6,2,7];
+    console.log(arr.indexOf(6));
+    console.log(arr.indexOf(6,3));
+    console.log(arr.indexOf(9,3));
+    console.log(arr.indexOf(5,3));
+    arr.forEach(function(val){
+      if(val < 5){
+        console.log(val);
+      }else{
+        return
+      }
+    })
+</script>
 </html>

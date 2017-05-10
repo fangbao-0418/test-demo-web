@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .btn1{
+            width: 150px;
+            height: 50px;
+            border: none;
+            border-radius: 5px;
+            background: red;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+            outline: none;
+        }
+        .btn1 span{
+            font-size: 30px;
+            position: relative;
+            transition: 1s;
+        }
+        .btn1 span:after{
+            position: absolute;
+            top: 0;
+            right: -20px;
+            content: "»";
+            opacity: 0;
+            transition: 1s;
+        }
+        .btn1:hover span{
+            padding-right: 20px;
+        }
+        .btn1:hover span:after{
+            opacity: 1;
+            right: 0;
+        }
+        .btn2{
+            padding: 20px 30px;
+            font-size: 24px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background: #4caf50;
+            text-align: center;
+            color: #fff;
+            outline: none;
+            box-shadow: 0 9px #999;
+        }
+        .btn2:active{
+            background: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+<body>
+<button class="btn1"><span>Hover</span></button>
+<button class="btn2">click me</button>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1{
+            width: 500px;
+            height: 100px;
+            font-size: 30px;
+            text-shadow:5px 10px 5px red;
+        }
+        .div2{
+            white-space:nowrap;
+            width: 100px;
+            height: 30px;
+            box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /*text-overflow: clip;*/
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        .div2:hover{
+            text-overflow: inherit;
+            overflow: visible;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">text effect</div>
+<div class="div2">text over flowertext over flower  </div>
+</body>
+</html>

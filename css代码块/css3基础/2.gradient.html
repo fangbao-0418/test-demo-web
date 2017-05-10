@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background: -webkit-linear-gradient(left,green,red,blue);/*从左到右Safari 5.1 - 6.0*/
+            background: -moz-linear-gradient(right,green,red,blue);/*从右到左Opera 11.1 - 12.0 */
+            background: -o-linear-gradient(right,green,red,blue);/*Firefox 3.6 - 15*/
+            background: linear-gradient(to left,rgba(255,0,0,0),rgba(255,0,0,1));/*加to 所有游览器都支出这种写法但是上面三种写法加to不识别 to表示从右到左*/
+        }
+        .div2{
+             width: 100px;
+             height: 100px;
+             background: -webkit-linear-gradient(left top,red,blue);
+             background: -moz-linear-gradient(right top,red,blue);
+             background: -o-linear-gradient(right top,red,blue);
+             background: repeating-linear-gradient(to left top,red,yellow 10%,blue 20%);/*IE必须加to*/
+         }
+        .div3{
+            width: 100px;
+            height: 100px;
+            background: -webkit-linear-gradient(180deg,red,yellow);
+            background: -moz-linear-gradient(180deg,red,yellow);
+            background: -o-linear-gradient(180deg,red,yellow);
+            background: linear-gradient(180deg,red,yellow);
+        }
+        .div4{
+            width: 100px;
+            height: 100px;
+            background: -webkit-radial-gradient(ellipse,red 5%,yellow 20%,green 50%);
+            background: -moz-radial-gradient(ellipse,red 5%,yellow 20%,green 50%);
+            background: -o-radial-gradient(ellipse,red 5%,yellow 20%,green 50%);
+            background: repeating-radial-gradient(ellipse,red 5%,yellow 20%,green 50%);
+        }
+        .div5{
+            width: 100px;
+            height: 100px;
+            background: -webkit-radial-gradient(10% 50%,farthest-side,yellow,green,black);
+            background: -moz-radial-gradient(10% 50%,closest-side,red,yellow,green,black);
+            background: -o-radial-gradient(10% 50%,closest-side,red,yellow,green,black);
+            background: radial-gradient(10% 50%,closest-side,red,yellow,green,black);/*百分比定义圆心其实的位置closet靠近的 farthest远的 corner角落*/
+        }
+    </style>
+</head>
+<body>
+<div class="div1" ></div>
+<div class="div2"></div>
+<div class="div3"></div>
+<div class="div4"></div>
+<div class="div5"></div>
+</body>
+</html>
