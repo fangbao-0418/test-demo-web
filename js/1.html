@@ -68,5 +68,17 @@
     var re = ary.join('+');
     console.log(eval(re));
     console.log(ary.reverse());
+    var arr = [2,6,5,9,4,6,2,7];
+    console.log(arr.indexOf(6));
+    console.log(arr.indexOf(6,3));
+    console.log(arr.indexOf(9,3));
+    console.log(arr.indexOf(5,3));
+    arr.forEach(function(val){
+      if(val < 5){
+        console.log(val);
+      }else{
+        return
+      }
+    })
 </script>
 </html>
