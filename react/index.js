@@ -108,31 +108,31 @@
 //  document.getElementById('app')
 //);
 //组件嵌套
-var Person = React.createClass({
-  render: function() {
-    return (
-      <div>
-        <PersonHead head = {this.props.head} />
-        <PersonBody body = {this.props.body} />
-      </div>
-    )
-  }
-});
-var PersonHead = React.createClass({
-  render: function() {
-    return (
-      <div>{this.props.head}</div>
-    )
-  }
-});
-var PersonBody = React.createClass({
-  render: function() {
-    return (
-      <div>{this.props.body}</div>
-    )
-  }
-});
-ReactDOM.render(
-  <Person  body='身体' head='头部'/>,
-  document.getElementById('app')
-);
+//var Person = React.createClass({
+//  render: function() {
+//    return (
+//      <div>
+//        <PersonHead head = {this.props.head} />
+//        <PersonBody body = {this.props.body} />
+//      </div>
+//    )
+//  }
+//});
+//var PersonHead = React.createClass({
+//  render: function() {
+//    return (
+//      <div>{this.props.head}</div>
+//    )
+//  }
+//});
+//var PersonBody = React.createClass({
+//  render: function() {
+//    return (
+//      <div>{this.props.body}</div>
+//    )
+//  }
+//});
+//ReactDOM.render(
+//  <Person  body='身体' head='头部'/>,
+//  document.getElementById('app')
+//);
