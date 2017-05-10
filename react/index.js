@@ -86,24 +86,53 @@
 //  document.getElementById('app')
 //);
 //表单双向数据绑定
-var Input = React.createClass({
-  getInitialState: function() {
-    return {value: '初始状态'}
-  },
-  handleChange: function(event) {
-    this.setState({value: event.target.value})
-  },
+//var Input = React.createClass({
+//  getInitialState: function() {
+//    return {value: '初始状态'}
+//  },
+//  handleChange: function(event) {
+//    this.setState({value: event.target.value})
+//  },
+//  render: function() {
+//    var value = this.state.value;
+//    return (
+//      <div>
+//        <input style={{color: 'red'}} type="text" value={value} onChange={this.handleChange} />
+//        <p>{value}</p>
+//      </div>
+//    )
+//  }
+//});
+//ReactDOM.render(
+//  <Input/>,
+//  document.getElementById('app')
+//);
+//组件嵌套
+var Person = React.createClass({
   render: function() {
-    var value = this.state.value;
     return (
       <div>
-        <input style={{color: 'red'}} type="text" value={value} onChange={this.handleChange} />
-        <p>{value}</p>
+        <PersonHead head = {this.props.head} />
+        <PersonBody body = {this.props.body} />
       </div>
     )
   }
 });
+var PersonHead = React.createClass({
+  render: function() {
+    return (
+      <div>{this.props.head}</div>
+    )
+  }
+});
+var PersonBody = React.createClass({
+  render: function() {
+    return (
+      <div>{this.props.body}</div>
+    )
+  }
+});
 ReactDOM.render(
-  <Input/>,
+  <Person  body='身体' head='头部'/>,
   document.getElementById('app')
 );

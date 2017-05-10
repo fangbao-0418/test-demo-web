@@ -11,3 +11,4 @@
 * 常用事件 剪贴板事件 onKeyDown onKeyPress onKeyUp 键盘事件 onFocus onBlur 焦点事件 onChange onInput onSubmit 鼠标事件 onClick onDoubleClick onMouseDown onMouseEnter onMouseLeave
 5. 表单元素双向数据绑定 `注意: 如果给表单元素设置了value属性，则必须指定onChange事件处理函数，否则 此字段会变成只读状态`
 6. 复合组件
+### 组件生命周期
