@@ -20,6 +20,7 @@
 * render 当调用的时候会检测this.props和this.state返回一个组件
 3. 渲染后
 * componentDidMount 在初始化渲染执行之后立刻调用
+#### 以上都是渲染完成后都会执行
 * shouldComponentUpdate 在接收新的props或者state,将要渲染之前调用,返回false则不更新组件
 * componentWillUpdate 做一些更新之前的准备工作
 * componentDidUpdate 更新之后触发
@@ -27,3 +28,4 @@
 4. 移除
 * componentWillUnmount 在组件从DOM中移除的时候立即调用
 * componentDidUnmount 在组件移除之后调用
+#### ReactDOM.unmountComponentAtNode(document.getElementById('app'))

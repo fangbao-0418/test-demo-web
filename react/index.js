@@ -136,3 +136,68 @@
 //  <Person  body='身体' head='头部'/>,
 //  document.getElementById('app')
 //);
+var Message = React.createClass({
+  getInitialState: function() {
+    console.log('Message.getInitialState');
+    return {
+      count: 0
+    }
+  },
+  getDefaultProps: function() {
+    console.log('Message.getDefaultProps');
+  },
+  componentWillMount: function() {
+    console.log('Message.componentWillMount');
+  },
+  componentDidMount:function() {
+    console.log('Message.componentDidMount');
+  },
+  shouldComponentUpdate: function() {
+    console.log('Message.shouldComponentUpdate');
+    if(this.state.count > 10) return false;
+    return true;
+  },
+  componentWillUpdate: function() {
+    console.log('Message.componentWillUpdate');
+  },
+  componentDidUpdate: function() {
+    console.log('Message.componentDidUpdate');
+  },
+  killMySelf: function() {
+    ReactDOM.unmountComponentAtNode(document.getElementById('app'))
+  },
+  doUpdate: function() {
+    this.setState({
+      count:this.state.count + 1
+    });
+  },
+  render: function() {
+    return (
+      <div>
+        <h1>计数：{this.state.count}</h1>
+        <button onClick={this.killMySelf}>移除这个组件</button>
+        <button onClick={this.doUpdate}>更新下state的值</button>
+        <Submessage count={this.state.count}/>
+      </div>
+    )
+  }
+});
+var Submessage = React.createClass({
+  componentWillReceiveProps: function() {
+    console.log('Submessage.componentWillReceiveProps');
+  },
+  shouldComponentUpdate: function() {
+    console.log('Submessage.shouldComponentUpdate');
+    if(this.props.count>5) return false;
+    return true;
+  },
+  render: function() {
+    return (
+      <h3>当前计数是：{this.props.count}</h3>
+    )
+  }
+});
+ReactDOM.render(
+  <Message/>,
+  document.getElementById('app')
+);
