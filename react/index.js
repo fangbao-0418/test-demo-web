@@ -203,20 +203,61 @@
 //  document.getElementById('app')
 //);
 //ref="XXX"
-var Focus = React.createClass({
-  handleClick: function() {
-    this.refs.msg.focus();
+//var Focus = React.createClass({
+//  handleClick: function() {
+//    this.refs.msg.focus();
+//  },
+//  render: function() {
+//    return (
+//      <div>
+//        <input type="text" ref="msg"/>
+//        <input type="button" value="获得焦点" onClick={this.handleClick} />
+//      </div>
+//    )
+//  }
+//});
+//ReactDOM.render(
+//  <Focus />,
+//  document.getElementById('app')
+//);
+//mixin
+var commonMix = {
+  getInitialState: function() {
+    return {count:0};
   },
+  componentWillUpdate: function() {
+    console.log('componentWillUpdate');
+  },
+  handleClick: function() {
+    this.setState({count:this.state.count + 1});
+  }
+};
+var Content1 = React.createClass({
+  mixins:[commonMix],
   render: function() {
     return (
       <div>
-        <input type="text" ref="msg"/>
-        <input type="button" value="获得焦点" onClick={this.handleClick} />
+        {this.state.count}
+        <button onClick={this.handleClick}>增加</button>
+      </div>
+    )
+  }
+});
+var Content2 = React.createClass({
+  mixins:[commonMix],
+  render: function() {
+    return (
+      <div>
+        {this.state.count}
+        <button onClick={this.handleClick}>增加</button>
       </div>
     )
   }
 });
 ReactDOM.render(
-  <Focus />,
+  <div>
+    <Content1 />
+    <Content2 />
+  </div>,
   document.getElementById('app')
 );

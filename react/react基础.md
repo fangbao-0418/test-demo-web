@@ -30,3 +30,4 @@
 * componentDidUnmount 在组件移除之后调用
 #### ReactDOM.unmountComponentAtNode(document.getElementById('app'))
 ### 组件加上ref="xxx" 在父组件中通过this.refs.xxx获取该DOM元素
+### mixin `公共部分提取出来,让不同组件公用同一部分逻辑，实现代码重用 但是两个组件的状态不是公用的 各自控制各自的` 以数组形式引入`mixins:[commonMix]`
