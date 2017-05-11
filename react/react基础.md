@@ -29,3 +29,4 @@
 * componentWillUnmount 在组件从DOM中移除的时候立即调用
 * componentDidUnmount 在组件移除之后调用
 #### ReactDOM.unmountComponentAtNode(document.getElementById('app'))
+### 组件加上ref="xxx" 在父组件中通过this.refs.xxx获取该DOM元素
