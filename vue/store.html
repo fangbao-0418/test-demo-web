@@ -1,0 +1,34 @@
+<div id="app">
+  <p>{{count}}</p>
+  <button @click = "add">增加</button>
+  <button @click = "reAdd">减少</button>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuex"></script>
+<script>
+  const store = new Vuex.Store({
+    state: {
+      count: 0
+    },
+    mutations: {
+      add: state => state.count ++,
+      reAdd: state => state.count --
+    }
+  })
+  const vue = new Vue({
+    el: "#app",
+    computed: {
+      count() {
+        return store.state.count
+      }
+    },
+    methods: {
+      add() {
+        store.commit("add");
+      },
+      reAdd() {
+        store.commit("reAdd")
+      }
+    }
+  })
+</script>
