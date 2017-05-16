@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ajax兼容处理及惰性思想</title>
+</head>
+<body>
+
+</body>
+<script src="./ajax.js"></script>
+<script>
+var xhr = createXHR();
+console.log(xhr);//相当于赋值小函数
+// function createXHR() {
+//   var xhr = null;
+//   if(window.XMLHttpRequest) {
+//     xhr = new XMLHttpRequest;
+//   }else {
+//     try {
+//       xhr = new ActiveXObject("Microsoft.XMLHTTP");
+//     }catch(e) {
+//       try {
+//         xhr = new ActiveXObject("Msxm12.XMLHTTP");
+//       }catch(e) {
+//         try {
+//           xhr = new ActiveXObject("Msxm13.XMLHTTP");
+//         }catch(e) {
+//           console.log("error")
+//         }
+//       }
+//     }
+//   }
+//   return xhr
+// }
+//惰性思想:能够执行一次就搞定的绝对不对执行第二次
+</script>
+</html>
