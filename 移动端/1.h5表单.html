@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>表单</title>
+  <style>
+    input {outline: none;display: inline-block;}
+    #userEmailTwo:valid{
+      border: 1px solid green
+    }
+    #userEmailTwo:invalid{
+      border: 1px solid red
+    }
+  </style>
+</head>
+<body>
+  <input type="password">
+  <input type="button">
+  <input type="submit">
+  <input type="reset">
+  <div class="radio">
+    <input type="radio" value="man" id="sexMan" name="sex" checked><label for="sexMan">男</label>
+    <input type="radio" value="woman" id="sexWoman" name="sex"><label for="sexWoman">女</label>
+    <input type="submit" id="submit">
+  </div>
+  <div class="checkbox">
+    <input type="checkbox" name="hobby" value="游泳" id="swim"><label for="swim">游泳</label>
+    <input type="checkbox" name="hobby" value="唱歌" id="sing"><label for="sing">唱歌</label>
+    <input type="checkbox" name="hobby" value="爬山" id="climb"><label for="climb">爬山</label>
+    <input type="checkbox" name="hobby" value="摄影" id="photo"><label for="photo">摄影</label>
+    <input type="checkbox" name="hobby" value="敲代码" id="code"><label for="code">敲代码</label>
+    <input type="submit" id="checkSubmit">
+  </div>
+  <div class="file">
+    <input type="file">
+  </div>
+  <div class="html5New">
+    <!-- <input type="number" min="15" max="30" step="2" value="16" disabled>
+    <input type="range" id="range"> -->
+    <input type="number" style="width: 50px;text-align: center" id="number" value="25" disabled>
+    <input type="range" id="range" min="15" max="65" step="1" value="25">
+  </div>
+  <div class="date">
+    <input type="date">
+  </div>
+  <div class="email">
+    <!-- 传统与现在表单验证区别 -->
+    传统验证:<input type="text" id="userEmailFir"><br>
+    HTML5验证:<input type="email" id="userEmailTwo">
+  </div>
+  <div class="new">
+    <input type="email" placeholder="请输入你常用邮箱">
+    <!--ie设置默认提示语写法  -->
+    <input type="email" placeholder="请输入你常用邮箱">
+    <span class="tip">请输入你常用邮箱</span>
+  </div>
+</body>
+<script>
+  //表单验证对比
+  var userEmailFir = document.getElementById("userEmailFir"),
+      userEmailTwo = document.getElementById("userEmailTwo");
+  //内置类String原型上拓展去掉首尾空格方法
+  ~function(pro){
+    function myTrim() {
+      return this.replace(/^ +| +$/g,"");
+    }
+    pro.myTrim = myTrim;
+  }(String.prototype);
+  userEmailFir.onblur = function() {
+    //去除首尾空格trim方法不兼容 所以用正则
+    var val = this.value.myTrim();
+    var reg =/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+    if(!reg.test(val)) {
+      console.log("邮箱格式不正确")
+    }
+  }
+  userEmailFir.onkeyup =function() {
+    var val = this.value.myTrim();
+    var reg =/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+    if(!reg.test(val)) {
+      this.style.border = "1px solid red";
+    }else{
+      this.style.border = "1px solid green";
+    }
+  }
+  userEmailTwo.onblur = function() {
+    var val = this.value.myTrim();
+    if(!this.checkValidity()){//false证明不通过验证
+      console.log("邮箱不正确")
+    }
+  }
+</script>
+<script>
+  //IE实现 默认提示 类似 placeholder
+
+</script>
+<script>
+// 单选
+  var submit = document.getElementById("submit"),
+      sexMan = document.getElementById("sexMan"),
+      sexWoman = document.getElementById("sexWoman");
+  submit.onclick = function() {
+    var sexType = 0;
+    !sexMan.checked?sexType = 1:0;
+    console.log(sexType);
+  }
+  // sexMan.onclick = sexWoman.onclick = function() {
+  //   console.log(this.value)
+  // }
+  sexMan.onchange = sexWoman.onclick = function() {
+    console.log(this.value)
+  }
+</script>
+<script>
+//复选
+  var checkSubmit = document.getElementById("checkSubmit"),
+      hobbyList = document.getElementsByName("hobby");
+  checkSubmit.onclick = function() {
+    for(var i=0;i<hobbyList.length;i++){
+      var curHobby = hobbyList[i];
+      if(curHobby.checked){
+        console.log(curHobby.value);
+      }
+    }
+  }
+</script>
+<script>
+//html5 range
+  var range = document.getElementById("range"),
+      number = document.getElementById("number");
+  range.oninput = function() {
+    number.value = this.value
+  }
+</script>
+</html>
