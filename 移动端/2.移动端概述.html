@@ -5,11 +5,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>响应式</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+  </style>
 </head>
 
 <body>
-
+  <div></div>
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
@@ -49,6 +61,13 @@
   window.location.href = "zhufeng://phone?callback=fn";
   //->zhufeng:// 就是我们事先制定的一个假协议，所有这种协议的都代表需要调取App的某个功能     //->phone 这个标识就是事先制定的需要调取拍照功能
   //->callback=fn 把自己JS中的某一个方法传递给App，App可以在拍照完成后执行这个方法，并且把保存的照片传递给这个方法(类似于JSONP)
+</script>
+<script>
+  //js动态设置vp
+  var oMeta = document.createElement("meta");
+  oMeta.name = "viewport";
+  oMeta.content = "width=device-width, initial-scale=1.0";
+  document.head.appendChild(oMeta);
 </script>
 
 </html>
