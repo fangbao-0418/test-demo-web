@@ -1,92 +1,94 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <!--禁止浏览器自己把页面中的数字识别为电话号码-->
-    <meta name="format-detection" content="telephone=no"/>
-    <!--把苹果手机浏览器中的菜单栏工具栏隐藏-->
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <!--控制状态栏显示样式-->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <!--safari禁止浏览器自己把页面中的数字识别为电话号码-->
+  <meta name="format-detection" content="telephone=no" />
+  <!--把苹果手机浏览器中的菜单栏工具栏隐藏-->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <!--控制状态栏显示样式-->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <!--http://www.admin10000.com/document/6304.html-->
-    <!--设置苹果手机到头后在下来出现的那个黑色背景框中的标题的-->
-    <meta name="apple-mobile-web-app-title" content="标题">
-
-
-    <!--检测是PC的浏览器还是移动端的浏览器-->
-    <script type="text/javascript">
-        var curURL = window.location.href;
-        if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
-            //手机端浏览器
-            if (curURL.indexOf("www.qq.com") > -1) {
-                window.location.href = "http://xw.qq.com/";
-            }
-        } else {
-            //pc端浏览器
-            if (curURL.indexOf("xw.qq.com") > -1) {
-                window.location.href = "http://www.qq.com/";
-            }
-        }
-    </script>
+  <!--http://www.admin10000.com/document/6304.html-->
+  <!--设置苹果手机到头后在下来出现的那个黑色背景框中的标题的-->
+  <meta name="apple-mobile-web-app-title" content="标题">
 
 
-    <title></title>
-    <style type="text/css">
-        * {
-            margin: 0;
-            padding: 0;
-        }
+  <!--检测是PC的浏览器还是移动端的浏览器-->
+  <script type="text/javascript">
+    var curURL = window.location.href;
+    if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+      //手机端浏览器
+      if (curURL.indexOf("www.qq.com") > -1) {
+        window.location.href = "http://xw.qq.com/";
+      }
+    } else {
+      //pc端浏览器
+      if (curURL.indexOf("xw.qq.com") > -1) {
+        window.location.href = "http://www.qq.com/";
+      }
+    }
+  </script>
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            background: pink;
-            overflow: hidden;
-        }
-          
-        @media all and (orientation: portrait) {
-            /*竖屏*/
-            body {
-                background: pink;
-            }
-        }
 
-        @media all and (orientation: landscape) {
-            /*横屏*/
-            body {
-                background: green;
-            }
-        }
-    </style>
+  <title></title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background: pink;
+      overflow: hidden;
+    }
+
+    @media all and (orientation: portrait) {
+      /*竖屏*/
+      body {
+        background: pink;
+      }
+    }
+
+    @media all and (orientation: landscape) {
+      /*横屏*/
+      body {
+        background: green;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<a href="tel:13041086186">立即联系我</a>
-<a href="sms:13041086186">发短信给我</a>
+  <a href="tel:13041086186">立即联系我</a>
+  <a href="sms:13041086186">发短信给我</a>
 
-<!--
+  <!--
     在移动端的H5开发过程中,我们不管是使用CSS/JS都能禁止用户的横竖屏切换,但是我们可以检测出当前是横屏还是竖屏(CSS/JS)
 -->
-<script type="text/javascript">
+  <script type="text/javascript">
     var flag = "onorientationchange" in window,
-            event = flag ? "orientationchange" : "resize";
-    window.addEventListener(event, function () {
-        if (flag) {
-            if (Math.abs(window.orientation) === 90) {
-                //->横屏
-                alert("横");
-            } else {
-                //->竖屏
-                alert("竖");
-            }
+      event = flag ? "orientationchange" : "resize";
+    window.addEventListener(event, function() {
+      if (flag) {
+        if (Math.abs(window.orientation) === 90) {
+          //->横屏
+          alert("横");
+        } else {
+          //->竖屏
+          alert("竖");
         }
+      }
     }, false);
-</script>
+  </script>
 
-<!--
+  <!--
  更多的meta标签：
  [UC 浏览器的部分私有Meta属性]
    设置屏幕方向为横屏还是竖屏
@@ -123,4 +125,5 @@
   <meta name="x5-page-mode" content="app" />
 -->
 </body>
+
 </html>
