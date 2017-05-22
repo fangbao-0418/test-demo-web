@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>倒计时</title>
+</head>
+
+<body>
+
+</body>
+<script>
+  var date1 = new Date();
+  var date2 = new Date("2017/05/23 00:00:00");
+
+  var dateValue = date2.getTime() - date1.getTime();
+  var days = Math.floor(dateValue / (24 * 3600 * 1000));
+  var hoursValue = dateValue % (24 * 3600 * 1000);
+  var hours = Math.floor(hoursValue / (3600 * 1000));
+  var minutesValue = hoursValue % (3600 * 1000);
+  var minutes = Math.floor(minutesValue / (60 * 1000));
+  var secondsValue = minutesValue % (60 * 1000);
+  var seconds = Math.floor(secondsValue / 1000);
+  console.log(days + "天" + hours + "小时" + minutes + "分" + seconds + "秒");
+</script>
+
+</html>

@@ -60,6 +60,7 @@
   document.documentElement.style.fontSize = ratio * 100 + "px";
   //初始化swiper实现区域的滑动
   var mySwiper = new swiper('.swiper-container', {
+    direction: 'vertical', // 控制滑动方向
     // 参数:滑动的区域，配置信息
     loop: true, // 无缝衔接滚动
     autoplay: 3000, // 自动轮播
