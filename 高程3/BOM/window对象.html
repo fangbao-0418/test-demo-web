@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+// window
+  var age = 18
+  window.color = 'red'
+  console.log(delete window.age) // false
+  console.log(delete window.color) //true
+
+  console.log(window.A) // undefined
+  // console.log(A) // error
+
+  var leftPos = (typeof window.screenLeft == 'number') ? window.screenLeft : window.screenX
+  console.log(leftPos)
+  var topPos = (typeof window.screenTop == 'number') ? window.screenTop : window.screenY
+  console.log(topPos)
+  window.moveTo(0, 0) // 移动x y 坐标
+  window.moveBy(0, 100) // 向下移动100px
+
+  console.log(window.innerWidth, 'innerWidth')
+  console.log(window.innerHeight, 'innerHeight')
+  console.log(window.outerWidth, 'outerWidth')
+  console.log(window.outerHeight, 'outerHeight')
+  var clientW = document.documentElement.clientWidth || document.body.clientWidth
+  var clientH = document.documentElement.clientHeight || document.body.clientHeight
+  console.log(clientW, 'clientW')
+  console.log(clientH, 'clientH')
+</script>
+</html>
