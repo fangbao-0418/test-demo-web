@@ -74,3 +74,8 @@ $("#target1").prop("disabled", true) // 按钮不能点
 ```
 - DOM加入新元素/文本 => jQ选择器.html("标签及文本") jQ选择器.text("文本")
 - DOM移除元素 => jQ选择器.remove()
+- DOM一个元素移动到另一个元素下 => jQ选择器.appendTo("选择器")
+```
+$("#target4").remove()
+$("#target2").appendTo("#right-well")
+```
