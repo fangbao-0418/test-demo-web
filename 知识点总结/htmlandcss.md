@@ -56,5 +56,6 @@ color: pink !important;
 - input样式 class="form-control"
 - 适量图形库Font Awesome 一般用i标签 class="fa fa-*-*" 如: fa-thumbs-up(点赞) fa-info-circle(说明) fa-trash(删除) fa-paper-plane(提交)
 #### 一些网站
-- reddit
-- medium
+- reddit https://www.reddit.com/r/FreeCodeCamp/
+- medium https://medium.com/
+- Twitch.tv https://www.twitch.tv/freecodecamp
