@@ -59,3 +59,18 @@ color: pink !important;
 - reddit https://www.reddit.com/r/FreeCodeCamp/
 - medium https://medium.com/
 - Twitch.tv https://www.twitch.tv/freecodecamp
+#### jQuery
+- $(document).ready(function(){html结构加在完成后执行})
+- jQ选择器 $("标签名") $(".className") $("#idName")
+- DOM增加类名 => jQ选择器.addClass("类名")
+- DOM移除类名 => jQ选择器.removeClass("类名")
+- DOM增加样式 => jQ选择器.css("属性名", "属性值")
+```
+$("#target1").css("color", "red")
+```
+- DOM调整元素属性 => jQ选择器.prop("属性名", "属性值")
+```
+$("#target1").prop("disabled", true) // 按钮不能点
+```
+- DOM加入新元素/文本 => jQ选择器.html("标签及文本") jQ选择器.text("文本")
+- DOM移除元素 => jQ选择器.remove()
