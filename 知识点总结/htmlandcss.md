@@ -36,8 +36,25 @@ color: pink !important;
 - 16进制从小到大 0-9 A B C D E F(0最小 F最大最亮 #000 #fff #f00 #0f0 #00f)
 - rgb(0, 0, 0) rgb(255, 255, 255) rgb(255, 0, 0)
 #### Bootstrap知识
-- 最外层div class="container-fluid"
+- 最外层div class="container-fluid" *保证整个页面都是响应式*
+- class="well" 为设定的列创造出一种视觉上的深度感
 - 图片自适应 class="img-responsive"
 - 文字居中 class="text-center"
-- button样式 class="btn btn-block btn-primary" class="btn-info btn-danger"
-- 栅格布局 row 下包含 col-md-* col-xs-*
+- 文字样式 class="tetx-primary" text-danger
+- button样式 class="btn btn-block btn-primary" class="btn-info btn-danger btn-default"
+- 栅格布局 row 下包含 col-md-* col-xs-* (一般用在手机) *类名都加在div上*
+```
+<div class="row">
+  <div class="col-xs-8">
+    <h2 class="text-primary text-center">CatPhotoApp</h2>
+  </div>
+  <div class="col-xs-4">
+    <a href="#"><img class="img-responsive thick-green-border" src="/images/relaxing-cat.jpg"></a>
+  </div>
+</div>
+```
+- input样式 class="form-control"
+- 适量图形库Font Awesome 一般用i标签 class="fa fa-*-*" 如: fa-thumbs-up(点赞) fa-info-circle(说明) fa-trash(删除) fa-paper-plane(提交)
+#### 一些网站
+- reddit
+- medium
