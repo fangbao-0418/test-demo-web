@@ -79,3 +79,20 @@ $("#target1").prop("disabled", true) // 按钮不能点
 $("#target4").remove()
 $("#target2").appendTo("#right-well")
 ```
+- 复制并且移动DOM $("").clone().appendTo("")
+```
+$("#target5").clone().appendTo("#left-well")
+```
+- 找到DOM父级元素并设置css样式
+```
+$("#target1").parent().css("background-color", "red")
+```
+- DOM子元素 .children
+```
+$("#right-well").children().css("color", "orange")
+```
+- p:nth-child(n) 规定属于其父元素的第二个子元素的每个 p 的背景色
+- p:odd 选择所以p元素的(奇数)元素  p:even 偶数选择所以p元素的偶数元素
+```
+$("p:nth-child(2)").css("background-color", "red")
+```
