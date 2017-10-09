@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+  var date = new Date()
+  console.log(date)
+  var nowDate1 = new Date('2017-06-16 16:10:59') // new Date(‘2016-08-31’) 这种形式应当尽量避免iOS 系统环境中，这种格式会报错
+  var string = '2017-06-16'
+  var nowDate3 = new Date(string.replace(/-/g, '/'))
+  var nowDate2 = new Date('2017/06/19 11:07:22') //
+  console.log(nowDate1, nowDate2, nowDate3)
+  var year = date.getFullYear()
+  console.log(year, '年')
+  var month = date.getMonth()  // 0-11
+  console.log(month, '月')
+  var dates = date.getDate() // 返回一个月中的某一天（1-31）
+  console.log(dates, '日')
+  var day = date.getDay() // 一星期中的某一天（0-6）
+  console.log(day, '星期')
+  var hours = date.getHours()
+  console.log(hours, '时')
+  var minutes = date.getMinutes()
+  console.log(minutes, '分')
+  var seconds = date.getSeconds()
+  console.log(seconds, '秒')
+  var time = date.getTime()  // 年月日星期时间字符串
+  // time = new Date(time)
+  console.log(time, '时间')
+
+  for (let key in date) {
+    console.log(key, '时间对象属性')
+  } // 不可枚举
+  console.log(Object.getOwnPropertyDescriptor(Date.prototype, 'toString'))
+  let proto = Date.prototype
+  let names = Object.getOwnPropertyNames(proto).filter((name) => /^to[a-zA-Z]*String/.test(name))
+  console.log(names)
+
+  console.log(nowDate2 + '')
+  console.log(nowDate2.toString())
+  console.log(nowDate2.toDateString()) // 年月日星期
+  console.log(nowDate2.toTimeString()) // 时分秒
+
+  console.log(nowDate2.toLocaleString()) // 2017-6-19 11:07:22
+  console.log(nowDate2.toLocaleDateString()) // 2017-6-19
+  console.log(nowDate2.toLocaleTimeString()) // 11:07:22
+
+  console.log(nowDate2.toISOString())
+  console.log(nowDate2.toUTCString())
+  console.log(nowDate2.toGMTString())
+  // console.dir(date)
+</script>
+</html>

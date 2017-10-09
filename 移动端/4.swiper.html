@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>移动端轮播图</title>
+  <link rel="stylesheet" href="path/to/swiper.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 100px
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .swiper-container {
+      height: 3rem;
+      overflow: hidden;
+    }
+
+    .swiper-slide {
+      height: 3rem;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="../img/banner1.png" alt=""></div>
+      <div class="swiper-slide"><img src="../img/banner2.png" alt=""></div>
+      <div class="swiper-slide"><img src="../img/banner3.png" alt=""></div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+  </div>
+</body>
+<script src="path/to/swiper.min.js"></script>
+<script>
+  //动态计算rem
+  var desW = 640;
+  var winW = document.documentElement.clientWidth;
+  var ratio = winW / desW;
+  var oMain = document.getElementById('main');
+  document.documentElement.style.fontSize = ratio * 100 + "px";
+  //初始化swiper实现区域的滑动
+  var mySwiper = new swiper('.swiper-container', {
+    direction: 'vertical', // 控制滑动方向
+    // 参数:滑动的区域，配置信息
+    loop: true, // 无缝衔接滚动
+    autoplay: 3000, // 自动轮播
+    pagination: '.swiper-pagination', // 分页器
+    autoplayDisableOnInteraction: false // 操作swiper后还能自动轮播
+  })
+</script>
+
+</html>

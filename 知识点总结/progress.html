@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    .outer-box {
+      width: 200px;
+      height: 200px;
+      background: yellow;
+      overflow: hidden;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      padding: 5px;
+      border: 5px solid red;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="outer-box">
+    <div class="box">fff</div>
+  </div>
+  <div class="col-xs-6">
+    <h4>#left-well</h4>
+    <div class="well" id="left-well">
+      <button class="btn btn-default target" id="target1">#target1</button>
+      <button class="btn btn-default target" id="target2">#target2</button>
+      <button class="btn btn-default target" id="target3">#target3</button>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <h4>#right-well</h4>
+    <div class="well" id="right-well">
+      <button class="btn btn-default target" id="target4">#target4</button>
+      <button class="btn btn-default target" id="target5">#target5</button>
+      <button class="btn btn-default target" id="target6">#target6</button>
+    </div>
+  </div>
+</body>
+<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+ var targetO = $(".target:nth-child(1)")
+ console.log(targetO)
+ var oTarget = $(".target:even")
+ console.log(oTarget)
+</script>
+<script>
+  var a ="This string has \"double quotes\" in it"
+  console.log(a)
+</script>
+</html>

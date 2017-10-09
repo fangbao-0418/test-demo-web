@@ -1,15 +1,15 @@
 //var person = ['老大', '老二', '老三'];
 //var style  = {color: 'red'};
-//ReactDOM.render(
-//  <div>
-//    {
-//      person.map(function(item) {
-//        return <p style = {style}>hello! {item}</p>
-//      })
-//    }
-//  </div>,
-//    document.getElementById('app')
-//);
+ReactDOM.render(
+ <div>
+   {
+     person.map(function(item) {
+       return <p style = {style}>hello! {item}</p>
+     })
+   }
+ </div>,
+   document.getElementById('app')
+);
 //组件类
 //var Message = React.createClass({
 //  render: function() {
@@ -108,31 +108,156 @@
 //  document.getElementById('app')
 //);
 //组件嵌套
-var Person = React.createClass({
+//var Person = React.createClass({
+//  render: function() {
+//    return (
+//      <div>
+//        <PersonHead head = {this.props.head} />
+//        <PersonBody body = {this.props.body} />
+//      </div>
+//    )
+//  }
+//});
+//var PersonHead = React.createClass({
+//  render: function() {
+//    return (
+//      <div>{this.props.head}</div>
+//    )
+//  }
+//});
+//var PersonBody = React.createClass({
+//  render: function() {
+//    return (
+//      <div>{this.props.body}</div>
+//    )
+//  }
+//});
+//ReactDOM.render(
+//  <Person  body='身体' head='头部'/>,
+//  document.getElementById('app')
+//);
+//生命周期
+//var Message = React.createClass({
+//  getInitialState: function() {
+//    console.log('Message.getInitialState');
+//    return {
+//      count: 0
+//    }
+//  },
+//  getDefaultProps: function() {
+//    console.log('Message.getDefaultProps');
+//  },
+//  componentWillMount: function() {
+//    console.log('Message.componentWillMount');
+//  },
+//  componentDidMount:function() {
+//    console.log('Message.componentDidMount');
+//  },
+//  shouldComponentUpdate: function() {
+//    console.log('Message.shouldComponentUpdate');
+//    if(this.state.count > 10) return false;
+//    return true;
+//  },
+//  componentWillUpdate: function() {
+//    console.log('Message.componentWillUpdate');
+//  },
+//  componentDidUpdate: function() {
+//    console.log('Message.componentDidUpdate');
+//  },
+//  killMySelf: function() {
+//    ReactDOM.unmountComponentAtNode(document.getElementById('app'))
+//  },
+//  doUpdate: function() {
+//    this.setState({
+//      count:this.state.count + 1
+//    });
+//  },
+//  render: function() {
+//    return (
+//      <div>
+//        <h1>计数：{this.state.count}</h1>
+//        <button onClick={this.killMySelf}>移除这个组件</button>
+//        <button onClick={this.doUpdate}>更新下state的值</button>
+//        <Submessage count={this.state.count}/>
+//      </div>
+//    )
+//  }
+//});
+//var Submessage = React.createClass({
+//  componentWillReceiveProps: function() {
+//    console.log('Submessage.componentWillReceiveProps');
+//  },
+//  shouldComponentUpdate: function() {
+//    console.log('Submessage.shouldComponentUpdate');
+//    if(this.props.count>5) return false;
+//    return true;
+//  },
+//  render: function() {
+//    return (
+//      <h3>当前计数是：{this.props.count}</h3>
+//    )
+//  }
+//});
+//ReactDOM.render(
+//  <Message/>,
+//  document.getElementById('app')
+//);
+//ref="XXX"
+//var Focus = React.createClass({
+//  handleClick: function() {
+//    this.refs.msg.focus();
+//  },
+//  render: function() {
+//    return (
+//      <div>
+//        <input type="text" ref="msg"/>
+//        <input type="button" value="获得焦点" onClick={this.handleClick} />
+//      </div>
+//    )
+//  }
+//});
+//ReactDOM.render(
+//  <Focus />,
+//  document.getElementById('app')
+//);
+//mixin
+var commonMix = {
+  getInitialState: function() {
+    return {count:0};
+  },
+  componentWillUpdate: function() {
+    console.log('componentWillUpdate');
+  },
+  handleClick: function() {
+    this.setState({count:this.state.count + 1});
+  }
+};
+var Content1 = React.createClass({
+  mixins:[commonMix],
   render: function() {
     return (
       <div>
-        <PersonHead head = {this.props.head} />
-        <PersonBody body = {this.props.body} />
+        {this.state.count}
+        <button onClick={this.handleClick}>增加</button>
       </div>
     )
   }
 });
-var PersonHead = React.createClass({
+var Content2 = React.createClass({
+  mixins:[commonMix],
   render: function() {
     return (
-      <div>{this.props.head}</div>
-    )
-  }
-});
-var PersonBody = React.createClass({
-  render: function() {
-    return (
-      <div>{this.props.body}</div>
+      <div>
+        {this.state.count}
+        <button onClick={this.handleClick}>增加</button>
+      </div>
     )
   }
 });
 ReactDOM.render(
-  <Person  body='身体' head='头部'/>,
+  <div>
+    <Content1 />
+    <Content2 />
+  </div>,
   document.getElementById('app')
 );

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ajax兼容处理及惰性思想</title>
+</head>
+<body>
+
+</body>
+<!-- <script src="./ajax.js"></script> -->
+<script>
+//var xhr = createXHR();
+//console.log(xhr);//相当于赋值小函数
+
+//ajax兼容处理基础
+// function createXHR() {
+//   var xhr = null;
+//   if(window.XMLHttpRequest) {
+//     xhr = new XMLHttpRequest;
+//   }else {
+//     try {
+//       xhr = new ActiveXObject("Microsoft.XMLHTTP");
+//     }catch(e) {
+//       try {
+//         xhr = new ActiveXObject("Msxm12.XMLHTTP");
+//       }catch(e) {
+//         try {
+//           xhr = new ActiveXObject("Msxm13.XMLHTTP");
+//         }catch(e) {
+//           console.log("error")
+//         }
+//       }
+//     }
+//   }
+//   return xhr
+// }
+//惰性思想:能够执行一次就搞定的绝对不对执行第二次
+</script>
+<script>
+  //js异步 定时器
+  // var count = 0;
+  // window.setTimeout(function() {
+  //   count ++;
+  //   console.log(count);
+  // },0);
+  // console.log(count);
+
+  // window.setTimeout(function() {
+  //   console.log("A");
+  // },10);
+  // window.setTimeout(function() {
+  //   console.log("B");
+  // },6);
+  // var i = 0;
+  // if(i<10000000){
+  //   i ++
+  // }
+
+  //ajax同步异步
+  // var xhr = new XMLHttpRequest;
+  // xhr.open("get","/data",false);
+  // xhr.sned(null);//send后ajax任务(向想服务器发送请求的任务)才开始
+
+  var xhr = new XMLHttpRequest;//状态码 0
+  // xhr.onreadystatechange = function () {//状态改变触发事件
+  //   console.log(xhr.readyState)//1 2 3 4 放在open前后输出的结果不同
+  // }
+  xhr.open("head","/data",true);//状态码 1
+  xhr.setRequestHeader("gyr":"2017");//设置请求头信息 要在open之后
+  xhr.timeout = "1000";//设置ajax请求的超时时间
+  xhr.onreadystatechange = function () {//状态改变触发事件
+    console.log(xhr.readyState)//2 3 4
+    //获取服务器时间 解决时间差 只能是状态是2的时候 因为2的时候响应头就已经有了
+    if(xhr.readyState === 2) {
+      var time = xhr.getResponseHeader("Date");//获取服务器的响应头信息
+      console.log(time);//服务器时间
+      console.log(new Date(time));//换成北京时间
+    }
+  }
+  xhr.send(null);
+
+  // var xhr = new XMLHttpRequest;
+  // xhr.open("get","/data",false);
+  // xhr.onreadystatechange = function () {
+  //   console.log(xhr.readyState)// 4 之前状态到1后来send开始后直到状态是4的时候完成，此时检测的是状态从1变到4
+  // }
+  // xhr.send(null);
+
+  // var xhr = new XMLHttpRequest;
+  // xhr.open("get","/data",false);
+  // xhr.send(null);
+  // xhr.onreadystatechange = function () {
+  //   console.log(xhr.readyState)// 没有任何输出
+  // }
+</script>
+</html>

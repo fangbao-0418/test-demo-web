@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>响应式</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  // 第一种常用方式：jsBridge(微信平台的JS SDK就是基于这个开发的)
+  //->首先需要引入微信提供好的一个JS：http://res.wx.qq.com/open/js/jweixin-1.0.0.js
+  //(其实App就是把这个JS中提供的方法注入到了web view中，所以我们只要引入这个JS进来就可以调用App的一些方法了)
+  wx.config({
+        debug: false,
+        appId: "你的AppID",
+        timestamp: '时间戳(需要后台生成)',
+        nonceStr: '字符串(需要后台生成)',
+        signature: '签名(需要后台生成)',
+        jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
+        //->功能列表，我们要使用JS-SDK的什么功能     });
+        //->首先调取ready方法，这里说明一下，web view中注入的对象其实就是wx，read就是提供的一个方法，此处的匿名函数就是我们传递进去的callback，当微信检测到已经准备就绪的时候就会把我们的callback执行
+        //获取“分享到朋友圈”按钮点击状态及自定义分享内容接口
+        wx.ready(function() {
+          wx.onMenuShareTimeline({
+            title: '分享标题',
+            link: "分享的url,以http或https开头",
+            imgUrl: "分享图标的url,以http或https开头"
+          });
+          //获取“分享给朋友”按钮点击状态及自定义分享内容接口
+          wx.onMenuShareAppMessage({
+            title: '分享标题',
+            desc: "分享描述",
+            link: "分享的url,以http或https开头",
+            imgUrl: "分享图标的url,以http或https开头",
+            type: 'link'
+          });
+        });
+</script>
+<script>
+  function fn(img) {
+    //->打开摄像头拍照后执行的后续操作 img是拍下来的照片
+  }
+  window.location.href = "zhufeng://phone?callback=fn";
+  //->zhufeng:// 就是我们事先制定的一个假协议，所有这种协议的都代表需要调取App的某个功能     //->phone 这个标识就是事先制定的需要调取拍照功能
+  //->callback=fn 把自己JS中的某一个方法传递给App，App可以在拍照完成后执行这个方法，并且把保存的照片传递给这个方法(类似于JSONP)
+</script>
+<script>
+  //js动态设置vp
+  var oMeta = document.createElement("meta");
+  oMeta.name = "viewport";
+  oMeta.content = "width=device-width, initial-scale=1.0";
+  document.head.appendChild(oMeta);
+</script>
+
+</html>

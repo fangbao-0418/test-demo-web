@@ -2,13 +2,73 @@
 <html>
 <head lang="en">
   <meta charset="UTF-8">
-  <title></title>
+  <title>react基础</title>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+  <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
 </head>
 <body>
 <div id="app"></div>
+<div id="test"></div>
+<div id="components"></div>
+<div id="props"></div>
 </body>
-<script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
-<script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
-<script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
-<script type="text/babel" src="./index.js"></script>
+<script type="text/babel">
+  let person = ['aa', 'bb', 'cc']
+  let style = {color: 'red'}
+  // 1
+  ReactDOM.render(
+    <h1>Hello</h1>,
+    document.getElementById('app')
+  )
+  // 2
+  ReactDOM.render(
+    <div>
+    {
+      person.map(function (item) {
+        return <div style={style}>say hello to {item}</div>
+      })
+    }
+    </div>,
+    document.getElementById('test')
+  )
+  // 3
+  var Person = React.createClass({
+    render: function() {
+      return <h2>组件组件</h2>
+    }
+  })
+  ReactDOM.render(
+    <Person></Person>,
+    document.getElementById('components')
+  )
+  // 4
+  var PropsName = React.createClass({
+    propTypes: {
+      // name: React.propTypes.string.isRequired,
+      gender: React.propTypes.String.isRequired,
+      age: React.propTypes.number.isRequired
+    },
+    getDefaultProps: function () {
+      return {name: 'gyr'}
+    },
+    render: function() {
+      return (
+        <h1>
+          {this.props.name}
+          {this.props.gender}
+          {this.props.age}
+        </h1>
+      )
+    }
+  })
+  let prop = {
+    gender: '男',
+    age: 18
+  }
+  ReactDOM.render(
+    <PropsName {...prop}></PropsName>,
+    document.getElementById('props')
+  )
+</script>
 </html>
