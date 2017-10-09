@@ -1,15 +1,15 @@
 //var person = ['老大', '老二', '老三'];
 //var style  = {color: 'red'};
-//ReactDOM.render(
-//  <div>
-//    {
-//      person.map(function(item) {
-//        return <p style = {style}>hello! {item}</p>
-//      })
-//    }
-//  </div>,
-//    document.getElementById('app')
-//);
+ReactDOM.render(
+ <div>
+   {
+     person.map(function(item) {
+       return <p style = {style}>hello! {item}</p>
+     })
+   }
+ </div>,
+   document.getElementById('app')
+);
 //组件类
 //var Message = React.createClass({
 //  render: function() {
